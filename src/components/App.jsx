@@ -1,16 +1,20 @@
+import { lazy, Suspense } from 'react';
+import { Routes, Route } from 'react-router-dom';
+
+const Layout = lazy(() => import('./Layout'));
+const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
+const VotingPage = lazy(() => import('../pages/VotingPage/VotingPage'));
+
 export const App = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
-      React homework template works
-    </div>
+    <Suspense fallback={null}>
+      <Layout>
+        <Routes>
+          <Route exact path="/" element={<HomePage />}/>
+          <Route path="voting" element={<VotingPage />}/>
+    
+        </Routes>
+      </Layout>
+    </Suspense>
   );
 };
