@@ -12,7 +12,7 @@ export const MenuSection = () => {
           alt="notebook"
           style={{ backgroundColor: '#B4B7FF', borderColor: '#F3F3FF' }}
           src={notebook}
-          navigateTo='voting'
+          navigateTo="voting"
           text="voting"
         />
 

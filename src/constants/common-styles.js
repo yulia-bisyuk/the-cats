@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const PagesWrapper = styled.div`
   width: 680px;
+  min-height: 770px;
   height: fit-content;
   padding: 20px;
   background-color: white;
@@ -13,5 +14,7 @@ const PagesPositioningWrapper = styled.div`
   top: 0;
   left: 730px;
 `;
+
+// const GoBackButton = styled.button
 
 export { PagesWrapper, PagesPositioningWrapper };

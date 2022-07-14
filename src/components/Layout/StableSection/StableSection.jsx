@@ -7,7 +7,7 @@ export const StableSection = () => {
   return (
     <SectionWrapper>
       <Logo />
-      <div style={{ width: '446px', height: '450px'}}>
+      <div style={{ width: '446px', height: '450px' }}>
         <WelcomeSection />
         <MenuSection />
       </div>
