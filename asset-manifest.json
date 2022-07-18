@@ -1,28 +1,32 @@
 {
   "files": {
     "main.css": "/the-cats/static/css/main.731ad6af.css",
-    "main.js": "/the-cats/static/js/main.5f518418.js",
-    "static/js/710.381d3487.chunk.js": "/the-cats/static/js/710.381d3487.chunk.js",
-    "static/js/156.a8a4942b.chunk.js": "/the-cats/static/js/156.a8a4942b.chunk.js",
-    "static/js/703.98d60c84.chunk.js": "/the-cats/static/js/703.98d60c84.chunk.js",
-    "static/js/496.90fe95bf.chunk.js": "/the-cats/static/js/496.90fe95bf.chunk.js",
-    "static/js/348.22535926.chunk.js": "/the-cats/static/js/348.22535926.chunk.js",
+    "main.js": "/the-cats/static/js/main.7326b867.js",
+    "static/js/710.3948400c.chunk.js": "/the-cats/static/js/710.3948400c.chunk.js",
+    "static/js/156.017a3abd.chunk.js": "/the-cats/static/js/156.017a3abd.chunk.js",
+    "static/js/270.17b7a1b3.chunk.js": "/the-cats/static/js/270.17b7a1b3.chunk.js",
+    "static/js/14.db4d8c26.chunk.js": "/the-cats/static/js/14.db4d8c26.chunk.js",
+    "static/js/666.6bb93548.chunk.js": "/the-cats/static/js/666.6bb93548.chunk.js",
+    "static/js/955.800fb3dd.chunk.js": "/the-cats/static/js/955.800fb3dd.chunk.js",
+    "static/js/214.1b6fe68a.chunk.js": "/the-cats/static/js/214.1b6fe68a.chunk.js",
     "static/media/girl-and-pet.png": "/the-cats/static/media/girl-and-pet.520bbdb6ef8fcd059ec4.png",
+    "static/media/sprite.svg": "/the-cats/static/media/sprite.330180c5fdac04933f4d61113d5e4353.svg",
     "static/media/images-search.png": "/the-cats/static/media/images-search.69ba4bdb455e5c8cd127.png",
-    "static/media/sprite.svg": "/the-cats/static/media/sprite.1449a6e399f00b3ede142ae741e742f8.svg",
     "static/media/vote-table.png": "/the-cats/static/media/vote-table.d90057a5ea03ad720a69.png",
     "static/media/pet-breeds.png": "/the-cats/static/media/pet-breeds.5ee8e4ca61e5fe0a9ab8.png",
     "index.html": "/the-cats/index.html",
     "main.731ad6af.css.map": "/the-cats/static/css/main.731ad6af.css.map",
-    "main.5f518418.js.map": "/the-cats/static/js/main.5f518418.js.map",
-    "710.381d3487.chunk.js.map": "/the-cats/static/js/710.381d3487.chunk.js.map",
-    "156.a8a4942b.chunk.js.map": "/the-cats/static/js/156.a8a4942b.chunk.js.map",
-    "703.98d60c84.chunk.js.map": "/the-cats/static/js/703.98d60c84.chunk.js.map",
-    "496.90fe95bf.chunk.js.map": "/the-cats/static/js/496.90fe95bf.chunk.js.map",
-    "348.22535926.chunk.js.map": "/the-cats/static/js/348.22535926.chunk.js.map"
+    "main.7326b867.js.map": "/the-cats/static/js/main.7326b867.js.map",
+    "710.3948400c.chunk.js.map": "/the-cats/static/js/710.3948400c.chunk.js.map",
+    "156.017a3abd.chunk.js.map": "/the-cats/static/js/156.017a3abd.chunk.js.map",
+    "270.17b7a1b3.chunk.js.map": "/the-cats/static/js/270.17b7a1b3.chunk.js.map",
+    "14.db4d8c26.chunk.js.map": "/the-cats/static/js/14.db4d8c26.chunk.js.map",
+    "666.6bb93548.chunk.js.map": "/the-cats/static/js/666.6bb93548.chunk.js.map",
+    "955.800fb3dd.chunk.js.map": "/the-cats/static/js/955.800fb3dd.chunk.js.map",
+    "214.1b6fe68a.chunk.js.map": "/the-cats/static/js/214.1b6fe68a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.731ad6af.css",
-    "static/js/main.5f518418.js"
+    "static/js/main.7326b867.js"
   ]
 }
