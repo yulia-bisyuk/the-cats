@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const LoaderWrapper = styled.div`
   width: 640px;
@@ -6,7 +6,7 @@ const LoaderWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: ${props => props.theme.lightGreyBgColor};
+  background-color: ${(props) => props.theme.lightGreyBgColor};
   border-radius: 20px;
 `;
 const ImageToVote = styled.img`
@@ -35,20 +35,23 @@ const ButtonLike = styled.button`
   height: 80px;
   border-radius: 20px 0px 0px 20px;
   border-color: transparent;
-  background-color: ${props => props.theme.green};
+  background-color: ${(props) => props.theme.green};
+  cursor: pointer;
 `;
 const ButtonFav = styled.button`
   width: 80px;
   height: 80px;
   border-color: transparent;
-  background-color: ${props => props.theme.pink};
+  background-color: ${(props) => props.theme.pink};
+  cursor: pointer;
 `;
 const ButtonDislike = styled.button`
   width: 80px;
   height: 80px;
   border-color: transparent;
   border-radius: 0px 20px 20px 0px;
-  background-color: ${props => props.theme.yellow};
+  background-color: ${(props) => props.theme.yellow};
+  cursor: pointer;
 `;
 
 export {

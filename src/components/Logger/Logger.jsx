@@ -1,7 +1,7 @@
-import sprite from '../../../icons/sprite.svg';
+import sprite from '../../icons/sprite.svg';
 import { LogList, LogListItem, Time, Text, Id, Icon } from './Logger.styled';
 
-export const Logger = ({ activities }) => {
+export const Logger = ({ activities, text }) => {
   const icon = type => {
     let href;
     switch (type) {
@@ -27,7 +27,7 @@ export const Logger = ({ activities }) => {
         <LogListItem key={activity.imageId}>
           <Time>{activity.time}</Time>{' '}
           <Text>
-            Image ID: <Id>{activity.imageId}</Id> was added to {activity.type}
+            Image ID: <Id>{activity.imageId}</Id> {text} {activity.type}
           </Text>
           <Icon width="20" height="20">
             <use href={sprite + icon(activity.type)} />

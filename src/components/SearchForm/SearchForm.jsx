@@ -1,64 +1,75 @@
-import { Formik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { useLocation, useNavigate } from 'react-router-dom';
+import { submit } from 'redux/catsDetailsSlice';
 import sprite from '../../icons/sprite.svg';
 import {
   FormWrapper,
   FormLabel,
   FormInput,
-  FormField,
   SubmitBtn,
   ReactionLink,
 } from './SearchForm.styled';
 
-const SearchForm = ({ formSubmit }) => {
-  const handleSubmit = (values, { resetForm }) => {
-    formSubmit(values);
-    resetForm();
-  };
+const SearchForm = () => {
+const navigate = useNavigate();
+const dispatch = useDispatch();
+const location = useLocation();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(submit(e.target.breedName.value));
+    navigate('/breeds-search-by-name')
+    e.target.reset();
+  };
+  
   return (
     <FormWrapper>
-      <Formik
-        initialValues={{ breedName: '' }}
-        onSubmit={(values, actions) => handleSubmit(values, actions)}
-      >
-        {formik => (
-          <FormField onSubmit={formik.handleSubmit}>
-            <FormLabel htmlFor="breedName">Sarch for breeds</FormLabel>
-            <FormInput
+
+          <form 
+          autoComplete='off'
+          onSubmit={handleSubmit}>
+            <FormLabel>Sarch for breeds</FormLabel>
+            
+          <FormInput
               id="breedName"
               name="breedName"
               type="text"
               placeholder="Search for breeds by name"
-              {...formik.getFieldProps('breedName')}
-            />
+             
+           / >
             <SubmitBtn type="submit">
               <svg width="20" height="20">
                 <use href={sprite + '#icon-search-20'} />
               </svg>
             </SubmitBtn>
-
-            {/* {formik.touched.breedName && formik.errors.breedName ? (
-              <ErrorMessage>{formik.errors.breedName}</ErrorMessage>
-            ) : null} */}
-          </FormField>
-        )}
-      </Formik>
+           
+            
+          </form>
+      
       <ReactionLink to="/likes">
-        <svg width="30" height="30">
+        {location.pathname === "/likes" ? <svg width="30" height="30">
+          <use href={sprite + '#icon-like-white-30'} />
+        </svg> : <svg width="30" height="30">
           <use href={sprite + '#icon-like-30'} />
-        </svg>
+        </svg>}
+        
       </ReactionLink>
 
       <ReactionLink to="/favourites">
-        <svg width="30" height="30">
+        {location.pathname === "/favourites" ? <svg width="30" height="30">
+          <use href={sprite + '#icon-Vector-348-white-Stroke'} />
+        </svg> : <svg width="30" height="30">
           <use href={sprite + '#icon-Vector-348-Stroke'} />
-        </svg>
+        </svg>}
       </ReactionLink>
 
       <ReactionLink to="/dislikes">
-        <svg width="30" height="30">
+        {location.pathname === "/dislikes" ? <svg width="30" height="30">
+          <use href={sprite + '#icon-dislike-white-30'} />
+        </svg> : <svg width="30" height="30">
           <use href={sprite + '#icon-dislike-30'} />
-        </svg>
+        </svg>}
+        
       </ReactionLink>
     </FormWrapper>
   );

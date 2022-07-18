@@ -11,7 +11,12 @@ const FavouritesPage = lazy(() =>
   import('../pages/FavouritesPage/FavouritesPage')
 );
 
+const SearchForBreedsPage = lazy(() =>
+  import('../pages/SearchForBreedsPage/SearchForBreedsPage')
+);
+
 export const App = () => {
+
   return (
     <Suspense fallback={null}>
       <Layout>
@@ -21,6 +26,7 @@ export const App = () => {
           <Route exact path="likes" element={<ReactionsPage />} />
           <Route exact path="dislikes" element={<ReactionsPage />} />
           <Route exact path="favourites" element={<FavouritesPage />} />
+          <Route exact path="breeds-search-by-name" element={<SearchForBreedsPage />} />
         </Routes>
       </Layout>
     </Suspense>

@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled from "styled-components";
+import { NavLink } from "react-router-dom";
 
 const FormWrapper = styled.div`
   width: 680px;
@@ -20,43 +20,46 @@ const FormLabel = styled.label`
   overflow: hidden;
 `;
 
-const FormField = styled.form`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+const FormInput = styled.input`
+  box-sizing: border-box;
+  position: relative;
   width: 470px;
   height: 60px;
+  padding: 0px 20px 0px 20px;
+  outline: none;
   border-radius: 20px;
   border-color: transparent;
   background-color: white;
-`;
-const FormInput = styled.input`
-  margin-left: 15px;
-  border: none;
-  width: 240px;
-  height: 25px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  color: ${(props) => props.theme.titleTextColor};
 
   ::placeholder {
-    color: ${props => props.theme.lightGrayTxtColor};
+    color: ${(props) => props.theme.lightGrayTxtColor};
     font-weight: 400;
     font-size: 20px;
     line-height: 1.5;
   }
   :active,
   :focus {
-    outline: none;
+    border-color: ${(props) => props.theme.pink};
   }
 `;
 
 const SubmitBtn = styled.button`
+  position: absolute;
+  left: 409px;
+  top: 9px;
+
   width: 40px;
   height: 40px;
-  margin-right: 15px;
   border-radius: 10px;
   border-color: transparent;
-  background-color: ${props => props.theme.lightPink};
+  background-color: ${(props) => props.theme.lightPink};
+  cursor: pointer;
 `;
-const ReactionLink = styled(Link)`
+const ReactionLink = styled(NavLink)`
   width: 60px;
   height: 60px;
   display: flex;
@@ -64,13 +67,10 @@ const ReactionLink = styled(Link)`
   justify-content: center;
   border-radius: 20px;
   background-color: white;
+
+  &.active {
+    background-color: ${(props) => props.theme.pink};
+  }
 `;
 
-export {
-  FormWrapper,
-  FormLabel,
-  FormInput,
-  FormField,
-  SubmitBtn,
-  ReactionLink,
-};
+export { FormWrapper, FormLabel, FormInput, SubmitBtn, ReactionLink };

@@ -1,79 +1,88 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
 export const catsApi = createApi({
-  reducerPath: 'catsApi',
+  reducerPath: "catsApi",
 
   baseQuery: fetchBaseQuery({
-    baseUrl: 'https://api.thecatapi.com/v1/',
-    prepareHeaders: headers => {
-      headers.set('x-api-key', '0b7504df-17ed-43ae-9368-17c81ca0668c');
+    baseUrl: "https://api.thecatapi.com/v1/",
+    prepareHeaders: (headers) => {
+      headers.set("x-api-key", "0b7504df-17ed-43ae-9368-17c81ca0668c");
 
       return headers;
     },
   }),
-  tagTypes: ['Cats'],
+  tagTypes: ["Cats"],
 
-  endpoints: builder => ({
+  endpoints: (builder) => ({
     fetchRandomCat: builder.query({
       query: () => ({ url: `images/search` }),
-      providesTags: ['Cats'],
+      providesTags: ["Cats"],
     }),
 
     voting: builder.mutation({
-      query: value => ({
-        url: `votes`,
-        method: 'POST',
+      query: (value) => ({
+        url: `votes?q=${value}`,
+        method: "POST",
         body: value,
       }),
-      invalidatesTags: ['Cats'],
-    }),
-
-    getUserVotes: builder.query({
-      query: value => ({
-        url: `votes?q=${value}`,
-      }),
-      providesTags: ['Cats'],
+      invalidatesTags: ["Cats"],
     }),
 
     addToFavourites: builder.mutation({
-      query: value => ({
+      query: (value) => ({
         url: `favourites`,
-        method: 'POST',
+        method: "POST",
         body: value,
       }),
-      invalidatesTags: ['Cats'],
+      invalidatesTags: ["Cats"],
     }),
 
     getUserFavourites: builder.query({
-      query: value => ({
+      query: (value) => ({
         url: `favourites?q=${value}`,
       }),
-      providesTags: ['Cats'],
+      providesTags: ["Cats"],
     }),
 
-    // getImageById: builder.query({
-    //   query: value => ({
-    //     url: `images/${value}`,
-    //   }),
-    //   providesTags: ['Cats'],
-    // }),
+    deleteFromFavourites: builder.mutation({
+      query: (value) => ({
+        url: `favourites/${value}`,
+        method: "DELETE",
+        body: value,
+      }),
+      invalidatesTags: ["Cats"],
+    }),
 
-    // fetchBreedByName: builder.query({
-    //   query: value => ({
-    //     url: `breeds/search?q=${value}`,
-    //     method: 'GET',
-    //   }),
-    //   providesTags: ['Cats'],
-    // }),
+    getImageById: builder.query({
+      query: (value) => ({
+        url: `images/${value}`,
+      }),
+      providesTags: ["Cats"],
+    }),
+
+    getImagesForBreed: builder.query({
+      query: (value) => ({
+        url: `images/search?breed_id=${value}&limit=5`,
+      }),
+      providesTags: ["Cats"],
+    }),
+
+    getBreedByName: builder.query({
+      query: (value) => ({
+        url: `breeds/search?q=${value}`,
+      }),
+      providesTags: ["Cats"],
+    }),
   }),
 });
 
 export const {
   useFetchRandomCatQuery,
   useVotingMutation,
-  useGetUserVotesQuery,
   useAddToFavouritesMutation,
   useGetUserFavouritesQuery,
-  //   useGetImageByIdQuery,
-  //   useFetchBreedByNameQuery,
+  useDeleteFromFavouritesMutation,
+  useGetImagesForBreedQuery,
+  useGetImageByIdQuery,
+  useGetBreedByNameQuery,
 } = catsApi;

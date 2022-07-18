@@ -1,6 +1,6 @@
 import SearchForm from 'components/SearchForm';
 import GoBackGroup from 'components/GoBackGroup';
-import { Logger } from './Logger/Logger';
+import { Logger } from '../../components/Logger/Logger';
 import dummy from '../images/upload-bg.png';
 import sprite from '../../icons/sprite.svg';
 import ClipLoader from 'react-spinners/ClipLoader';
@@ -21,13 +21,17 @@ import {
   ButtonFav,
   ButtonDislike,
 } from './VotingPage.styled';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import {getLikedImages, getDislikedImages} from '../../redux/catsDetailsSlice';
 
 const VotingPage = () => {
+  const dispatch = useDispatch();
   const { data: cat, isSuccess, isFetching } = useFetchRandomCatQuery();
+
   const [vote] = useVotingMutation();
   const [add] = useAddToFavouritesMutation();
-  const [activities, setActivities] = useState([]);
+  const [activities, setActivities] = useState(JSON.parse(window.localStorage.getItem('activities')) || []);
 
   const url = isSuccess ? cat[0].url : dummy;
 
@@ -38,8 +42,13 @@ const VotingPage = () => {
       ...prevState,
       { imageId: id, type: type, time: date },
     ]);
-    console.log('activity', activities);
+   
   };
+
+  useEffect(() => {
+    window.localStorage.setItem('activities', JSON.stringify(activities));
+    if(activities.length > 20) window.localStorage.clear();
+  }, [activities]);
 
   return (
     <PagesPositioningWrapper>
@@ -64,6 +73,7 @@ const VotingPage = () => {
               onClick={() => {
                 vote({ image_id: `${cat[0].id}`, value: 1, sub_id: 'user' });
                 activityLogger(`${cat[0].id}`, 'Likes');
+                dispatch(getLikedImages(cat[0].url))
               }}
             >
               <svg width="30" height="30">
@@ -84,6 +94,7 @@ const VotingPage = () => {
               onClick={() => {
                 vote({ image_id: `${cat[0].id}`, value: 0, sub_id: 'user' });
                 activityLogger(`${cat[0].id}`, 'Dislike');
+                 dispatch(getDislikedImages(cat[0].url));
               }}
             >
               <svg width="30" height="30">
@@ -92,7 +103,7 @@ const VotingPage = () => {
             </ButtonDislike>
           </ButtonsWrapper>
         )}
-        {activities !== [] && <Logger activities={activities} />}
+        {activities !== [] && <Logger activities={activities} text='was added to'/>}
       </PagesWrapper>
     </PagesPositioningWrapper>
   );

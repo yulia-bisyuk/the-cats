@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const LogList = styled.ul`
   margin-top: 52px;
@@ -12,7 +12,7 @@ const LogListItem = styled.li`
   &:not(:last-child) {
     margin-bottom: 10px;
   }
-  background-color: ${props => props.theme.lightGreyBgColor};
+  background-color: ${(props) => props.theme.lightGreyBgColor};
   border-radius: 10px;
 `;
 const Time = styled.span`
@@ -28,19 +28,19 @@ const Time = styled.span`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  color: ${props => props.theme.titleColor};
+  color: ${(props) => props.theme.titleColor};
 `;
 const Text = styled.span`
   font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
-  color: ${props => props.theme.lightGrayTxtColor};
+  color: ${(props) => props.theme.lightGrayTxtColor};
 `;
 const Id = styled.span`
   font-weight: 500;
   font-size: 16px;
   line-height: 1.5;
-  color: ${props => props.theme.titleColor};
+  color: ${(props) => props.theme.titleColor};
 `;
 const Icon = styled.svg`
   margin-left: auto;
