@@ -1,22 +1,27 @@
-import { lazy, Suspense } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { lazy, Suspense } from "react";
+import { Routes, Route } from "react-router-dom";
 
-const Layout = lazy(() => import('./Layout'));
-const HomePage = lazy(() => import('../pages/HomePage/HomePage'));
-const VotingPage = lazy(() => import('../pages/VotingPage/VotingPage'));
+const Layout = lazy(() => import("./Layout"));
+const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
+const VotingPage = lazy(() => import("../pages/VotingPage/VotingPage"));
 const ReactionsPage = lazy(() =>
-  import('../pages/ReactionsPage/ReactionsPage')
+  import("../pages/ReactionsPage/ReactionsPage")
 );
 const FavouritesPage = lazy(() =>
-  import('../pages/FavouritesPage/FavouritesPage')
+  import("../pages/FavouritesPage/FavouritesPage")
 );
 
 const SearchForBreedsPage = lazy(() =>
-  import('../pages/SearchForBreedsPage/SearchForBreedsPage')
+  import("../pages/SearchForBreedsPage/SearchForBreedsPage")
 );
 
-export const App = () => {
+const BreedInfoPage = lazy(() =>
+  import("../pages/BreedInfoPage/BreedInfoPage")
+);
 
+
+
+export const App = () => {
   return (
     <Suspense fallback={null}>
       <Layout>
@@ -26,7 +31,14 @@ export const App = () => {
           <Route exact path="likes" element={<ReactionsPage />} />
           <Route exact path="dislikes" element={<ReactionsPage />} />
           <Route exact path="favourites" element={<FavouritesPage />} />
-          <Route exact path="breeds-search-by-name" element={<SearchForBreedsPage />} />
+          <Route
+            exact
+            path="breeds-search-by-name"
+            element={<SearchForBreedsPage />}
+          />
+
+          {/* поправити адресу на breeds/info */}
+          <Route exact path="info" element={<BreedInfoPage />} />
         </Routes>
       </Layout>
     </Suspense>

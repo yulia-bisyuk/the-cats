@@ -1,1 +1,1 @@
-export { default } from './GoBackGroup';
+export { default } from "./GoBackGroup";

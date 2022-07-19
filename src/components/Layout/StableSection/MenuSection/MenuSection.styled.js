@@ -1,4 +1,5 @@
-import styled from 'styled-components';
+import { NavLink } from "react-router-dom";
+import styled from "styled-components";
 
 const FlexWrapper = styled.div`
   display: flex;
@@ -14,27 +15,30 @@ const ImgWrapper = styled.div`
   border-radius: 20px;
   border-width: 4px;
 `;
-const MenuBtn = styled.button`
+const MenuLink = styled(NavLink)`
   width: 138px;
   height: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: white;
   border-radius: 10px;
   border-color: transparent;
   text-transform: uppercase;
+  text-decoration: none;
   font-weight: 500;
   font-size: 12px;
   line-height: 1.33;
-  text-align: center;
   letter-spacing: 2px;
-  color: ${props => props.theme.pink};
+  color: ${(props) => props.theme.pink};
   cursor: pointer;
 
   :hover {
-    background-color: ${props => props.theme.lightPink};
+    background-color: ${(props) => props.theme.lightPink};
   }
-  :active {
-    background-color: ${props => props.theme.pink};
+  &.active {
+    background-color: ${(props) => props.theme.pink};
     color: white;
   }
 `;
-export { ImgWrapper, FlexWrapper, MenuBtn };
+export { ImgWrapper, FlexWrapper, MenuLink };

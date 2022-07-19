@@ -3,7 +3,7 @@ import {
   Title,
   WelcomeTxt,
   SubTitle,
-} from './WelcomeSection.styled';
+} from "./WelcomeSection.styled";
 
 export const WelcomeSection = () => {
   return (

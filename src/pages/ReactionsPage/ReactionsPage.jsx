@@ -1,35 +1,33 @@
-import { useLocation, useNavigate } from 'react-router-dom';
-import SearchForm from 'components/SearchForm';
-import Gallery from 'components/Gallery';
-import GoBackGroup from 'components/GoBackGroup';
+import { useLocation, useNavigate } from "react-router-dom";
+import SearchForm from "components/SearchForm";
+import Gallery from "components/Gallery";
+import GoBackGroup from "components/GoBackGroup";
 import {
   PagesWrapper,
   PagesPositioningWrapper,
-} from '../../constants/common-styles';
-import { getLikedImageslValue, getDislikedImageslValue } from 'redux/catsDetailsSlice';
-import { useSelector } from 'react-redux';
-
+} from "../../constants/common-styles";
+import {
+  getLikedImageslValue,
+  getDislikedImageslValue,
+} from "redux/catsDetailsSlice";
+import { useSelector } from "react-redux";
 
 const LikesPage = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const likes = useSelector(getLikedImageslValue);
   const dislikes = useSelector(getDislikedImageslValue);
-  console.log('imageUrl', likes);
+  console.log("imageUrl", likes);
 
-  const btnText = location.pathname === '/likes' ? 'Likes' : 'Dislikes';
+  const btnText = location.pathname === "/likes" ? "Likes" : "Dislikes";
 
   return (
     <PagesPositioningWrapper>
       <SearchForm />
       <PagesWrapper>
-        <GoBackGroup btnText={btnText} onClick={() => navigate('/voting')}/>
-        {location.pathname === '/likes' && (
-          <Gallery items={likes} />
-        )}
-        {location.pathname === '/dislikes' && (
-          <Gallery items={dislikes} />
-        )}
+        <GoBackGroup btnText={btnText} onClick={() => navigate("/voting")} />
+        {location.pathname === "/likes" && <Gallery items={likes} />}
+        {location.pathname === "/dislikes" && <Gallery items={dislikes} />}
       </PagesWrapper>
     </PagesPositioningWrapper>
   );

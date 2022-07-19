@@ -3,7 +3,7 @@
 body {
   margin: 0;
   background-color: #f8f8f7;
-  font-family: 'Jost', sans-serif;
+  font-family: "Jost", sans-serif;
   font-style: normal;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -28,6 +28,6 @@ div {
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }

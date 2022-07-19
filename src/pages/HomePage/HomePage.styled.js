@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const HomePageWrapper = styled.div`
   max-width: 1440px;
@@ -12,7 +12,7 @@ const BackgroundRectangle = styled.div`
   width: 680px;
   height: 840px;
 
-  background: ${props => props.theme.lightPink};
+  background: ${(props) => props.theme.lightPink};
   border-radius: 20px;
 `;
 

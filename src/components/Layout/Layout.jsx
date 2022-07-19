@@ -1,6 +1,6 @@
-import { Outlet } from 'react-router-dom';
-import { Container } from './Layout.styled';
-import { StableSection } from './StableSection/StableSection';
+import { Outlet } from "react-router-dom";
+import { Container } from "./Layout.styled";
+import { StableSection } from "./StableSection/StableSection";
 
 const Layout = ({ children }) => {
   return (

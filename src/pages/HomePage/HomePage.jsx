@@ -2,8 +2,8 @@ import {
   BackgroundRectangle,
   HomePageImg,
   HomePageWrapper,
-} from './HomePage.styled';
-import img from '../images/girl-and-pet.png';
+} from "./HomePage.styled";
+import img from "../images/girl-and-pet.png";
 
 const HomePage = () => {
   return (

@@ -1,18 +1,18 @@
-import sprite from '../../icons/sprite.svg';
-import { LogList, LogListItem, Time, Text, Id, Icon } from './Logger.styled';
+import sprite from "../../icons/sprite.svg";
+import { LogList, LogListItem, Time, Text, Id, Icon } from "./Logger.styled";
 
 export const Logger = ({ activities, text }) => {
-  const icon = type => {
+  const icon = (type) => {
     let href;
     switch (type) {
-      case 'Likes':
-        href = '#icon-like-color-30';
+      case "Likes":
+        href = "#icon-like-color-30";
         break;
-      case 'Favourites':
-        href = '#icon-Vector-348-Stroke';
+      case "Favourites":
+        href = "#icon-Vector-348-Stroke";
         break;
-      case 'Dislike':
-        href = '#icon-dislike-color-30';
+      case "Dislike":
+        href = "#icon-dislike-color-30";
         break;
 
       default:
@@ -23,9 +23,9 @@ export const Logger = ({ activities, text }) => {
 
   return (
     <LogList>
-      {activities.map(activity => (
+      {activities.map((activity) => (
         <LogListItem key={activity.imageId}>
-          <Time>{activity.time}</Time>{' '}
+          <Time>{activity.time}</Time>{" "}
           <Text>
             Image ID: <Id>{activity.imageId}</Id> {text} {activity.type}
           </Text>

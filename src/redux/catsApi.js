@@ -73,6 +73,13 @@ export const catsApi = createApi({
       }),
       providesTags: ["Cats"],
     }),
+
+    getBreedById: builder.query({
+      query: (value) => ({
+        url: `breeds/${value}`,
+      }),
+      providesTags: ["Cats"],
+    }),
   }),
 });
 
@@ -85,4 +92,5 @@ export const {
   useGetImagesForBreedQuery,
   useGetImageByIdQuery,
   useGetBreedByNameQuery,
+  useGetBreedByIdQuery,
 } = catsApi;

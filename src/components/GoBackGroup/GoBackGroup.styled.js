@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const BtnsWrapper = styled.div`
   margin-bottom: 20px;
@@ -12,7 +12,7 @@ const GoBackBtn = styled.button`
   margin-right: 10px;
   border-radius: 10px;
   border-color: transparent;
-  background-color: ${props => props.theme.lightPink};
+  background-color: ${(props) => props.theme.lightPink};
 `;
 const CurrentPageBtn = styled.button`
   padding: 3px 28px;
@@ -25,6 +25,6 @@ const CurrentPageBtn = styled.button`
   letter-spacing: 2px;
   text-transform: uppercase;
   color: white;
-  background-color: ${props => props.theme.pink};
+  background-color: ${(props) => props.theme.pink};
 `;
 export { GoBackBtn, CurrentPageBtn, BtnsWrapper };

@@ -1,10 +1,11 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 const PagesWrapper = styled.div`
   width: 680px;
   min-height: 770px;
   height: fit-content;
   padding: 20px;
+  margin-bottom: 30px;
   background-color: white;
   border-radius: 20px;
 `;
