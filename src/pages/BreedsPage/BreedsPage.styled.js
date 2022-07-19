@@ -15,4 +15,100 @@ const BreedButton = styled.button`
   color: ${(props) => props.theme.pink};
   cursor: pointer;
 `;
-export { BreedButton };
+
+const SelectsWrapper = styled.div`
+  display: flex;
+  justify-content: space-evenly;
+`;
+
+const SortButton = styled.button`
+  width: 40px;
+  height: 40px;
+  border-color: transparent;
+  border-radius: 10px;
+  background-color: ${(props) => props.theme.lightGreyBgColor};
+`;
+
+export { BreedButton, SelectsWrapper, SortButton };
+
+export const customBreedStyles = {
+  container: () => ({
+    width: 226,
+    height: 40,
+    position: "relative",
+  }),
+
+  control: () => ({
+    width: 226,
+    height: 40,
+    display: "flex",
+    alignItems: "center",
+    borderColor: "transparent",
+    borderRadius: 10,
+    backgroundColor: "#F8F8F7",
+  }),
+
+  indicatorSeparator: () => ({
+    display: "none",
+  }),
+
+  indicatorsContainer: () => ({
+    position: "absolute",
+    top: 0,
+    right: 0,
+  }),
+
+  menu: () => ({
+    borderColor: "transparent",
+    borderRadius: 10,
+    backgroundColor: "white",
+  }),
+
+  menuList: () => ({
+    fontWeight: 400,
+    fontSize: 16,
+    lineHeight: 1.5,
+    color: "#8C8C8C",
+  }),
+};
+
+export const customLimitStyles = {
+  container: () => ({
+    width: 101,
+    height: 40,
+    position: "relative",
+  }),
+
+  control: () => ({
+    width: 101,
+    height: 40,
+    display: "flex",
+    alignItems: "center",
+    borderColor: "transparent",
+    borderRadius: 10,
+    backgroundColor: "#F8F8F7",
+  }),
+
+  indicatorSeparator: () => ({
+    display: "none",
+  }),
+
+  indicatorsContainer: () => ({
+    position: "absolute",
+    top: 0,
+    right: 0,
+  }),
+
+  menu: () => ({
+    borderColor: "transparent",
+    borderRadius: 10,
+    backgroundColor: "white",
+  }),
+
+  menuList: () => ({
+    fontWeight: 400,
+    fontSize: 16,
+    lineHeight: 1.5,
+    color: "#8C8C8C",
+  }),
+};

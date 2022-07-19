@@ -1,4 +1,4 @@
-import { useLocation, useNavigate } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import SearchForm from "components/SearchForm";
 import Gallery from "components/Gallery";
 import GoBackGroup from "components/GoBackGroup";
@@ -14,7 +14,6 @@ import { useSelector } from "react-redux";
 
 const LikesPage = () => {
   const location = useLocation();
-  const navigate = useNavigate();
   const likes = useSelector(getLikedImageslValue);
   const dislikes = useSelector(getDislikedImageslValue);
   console.log("imageUrl", likes);
@@ -25,7 +24,7 @@ const LikesPage = () => {
     <PagesPositioningWrapper>
       <SearchForm />
       <PagesWrapper>
-        <GoBackGroup btnText={btnText} onClick={() => navigate("/voting")} />
+        <GoBackGroup btnText={btnText} />
         {location.pathname === "/likes" && <Gallery items={likes} />}
         {location.pathname === "/dislikes" && <Gallery items={dislikes} />}
       </PagesWrapper>

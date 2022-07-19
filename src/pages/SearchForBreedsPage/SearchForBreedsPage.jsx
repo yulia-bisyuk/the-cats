@@ -30,11 +30,6 @@ const SearchForBreedsPage = () => {
 
    const { data: images, isLoading } = useGetImagesForBreedQuery(breedId);
 
-  // let breedId;
-  // if (isSuccess && breed.length !== 0) {
-  //   breedId = breed[0].id;
-  // }
-
   return (
     <PagesPositioningWrapper>
       <SearchForm />
