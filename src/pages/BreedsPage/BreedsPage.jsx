@@ -6,9 +6,8 @@ import {
   PagesPositioningWrapper,
 } from "../../constants/common-styles";
 import { useGetAllBreedsQuery } from "redux/catsApi";
-import Select from 'react-select';
 import sprite from '../../icons/sprite.svg';
-import { customBreedStyles, customLimitStyles, SelectsWrapper, SortButton } from "./BreedsPage.styled";
+import { SelectsWrapper, SortButton } from "./BreedsPage.styled";
 
 
 const BreedsPage = () => {
@@ -23,11 +22,20 @@ if(isSuccess) breedsOptions = allBreeds.concat(breeds.map(breed =>
 console.log('breedsOptions', breedsOptions);
 
 let limitOptions = [
-    {value: '5', label: 'Limit: 5'},
-    {value: '10', label: 'Limit: 10'},
-    {value: '15', label: 'Limit: 15'},
-    {value: '20', label: 'Limit: 20'},
-]
+    {value: '5'},
+    {value: '10'},
+    {value: '15'},
+    {value: '20'},
+];
+
+const handleSubmit =(e) => {
+e.preventDefault();
+console.log('submit');
+};
+
+const handleChange = (e) => {
+    console.log(e.target.value);
+}
 
 
     return(
@@ -38,14 +46,13 @@ let limitOptions = [
         <GoBackGroup btnText='breeds' />
 
         {isSuccess && 
-        <>
-        <Select options={breedsOptions}
-    styles={customBreedStyles}
-         />
-         <Select options={limitOptions}
-         styles={customLimitStyles}
-         />
-         </>
+          <select value='кокос' onChange={handleChange}>
+            <option value="грейпфрут">Грейпфрут</option>
+            <option value="лайм">Лайм</option>
+            <option value="кокос">Кокос</option>
+            <option value="манго">Манго</option>
+          </select>
+
          }
          <SortButton>
              <svg width="20" height="20">

@@ -31,84 +31,88 @@ const SortButton = styled.button`
 
 export { BreedButton, SelectsWrapper, SortButton };
 
-export const customBreedStyles = {
-  container: () => ({
-    width: 226,
-    height: 40,
-    position: "relative",
-  }),
+// export const customBreedStyles = {
+//   container: () => ({
+//     width: 226,
+//     height: 40,
+//     position: "relative",
+//   }),
 
-  control: () => ({
-    width: 226,
-    height: 40,
-    display: "flex",
-    alignItems: "center",
-    borderColor: "transparent",
-    borderRadius: 10,
-    backgroundColor: "#F8F8F7",
-  }),
+//   control: () => ({
+//     width: 226,
+//     height: 40,
+//     display: "flex",
+//     alignItems: "center",
+//     borderColor: "transparent",
+//     borderRadius: 10,
+//     backgroundColor: "#F8F8F7",
+//   }),
 
-  indicatorSeparator: () => ({
-    display: "none",
-  }),
+//   indicatorSeparator: () => ({
+//     display: "none",
+//   }),
 
-  indicatorsContainer: () => ({
-    position: "absolute",
-    top: 0,
-    right: 0,
-  }),
+//   indicatorsContainer: () => ({
+//     position: "absolute",
+//     top: 0,
+//     right: 0,
+//   }),
 
-  menu: () => ({
-    borderColor: "transparent",
-    borderRadius: 10,
-    backgroundColor: "white",
-  }),
+//   menu: () => ({
+//     borderColor: "transparent",
+//     borderRadius: 10,
+//     backgroundColor: "white",
+//   }),
 
-  menuList: () => ({
-    fontWeight: 400,
-    fontSize: 16,
-    lineHeight: 1.5,
-    color: "#8C8C8C",
-  }),
-};
+//   menuList: () => ({
+//     fontWeight: 400,
+//     fontSize: 16,
+//     lineHeight: 1.5,
+//     color: "#8C8C8C",
+//   }),
 
-export const customLimitStyles = {
-  container: () => ({
-    width: 101,
-    height: 40,
-    position: "relative",
-  }),
+//   singleValue: () => ({
+//     backgroundColor: "#F8F8F7",
+//   })
+// };
 
-  control: () => ({
-    width: 101,
-    height: 40,
-    display: "flex",
-    alignItems: "center",
-    borderColor: "transparent",
-    borderRadius: 10,
-    backgroundColor: "#F8F8F7",
-  }),
+// export const customLimitStyles = {
+//   container: () => ({
+//     width: 101,
+//     height: 40,
+//     position: "relative",
+//   }),
 
-  indicatorSeparator: () => ({
-    display: "none",
-  }),
+//   control: () => ({
+//     width: 101,
+//     height: 40,
+//     display: "flex",
+//     alignItems: "center",
+//     borderColor: "transparent",
+//     borderRadius: 10,
+//     backgroundColor: "#F8F8F7",
+//   }),
 
-  indicatorsContainer: () => ({
-    position: "absolute",
-    top: 0,
-    right: 0,
-  }),
+//   indicatorSeparator: () => ({
+//     display: "none",
+//   }),
 
-  menu: () => ({
-    borderColor: "transparent",
-    borderRadius: 10,
-    backgroundColor: "white",
-  }),
+//   indicatorsContainer: () => ({
+//     position: "absolute",
+//     top: 0,
+//     right: 0,
+//   }),
 
-  menuList: () => ({
-    fontWeight: 400,
-    fontSize: 16,
-    lineHeight: 1.5,
-    color: "#8C8C8C",
-  }),
-};
+//   menu: () => ({
+//     borderColor: "transparent",
+//     borderRadius: 10,
+//     backgroundColor: "white",
+//   }),
+
+//   menuList: () => ({
+//     fontWeight: 400,
+//     fontSize: 16,
+//     lineHeight: 1.5,
+//     color: "#8C8C8C",
+//   }),
+// };
