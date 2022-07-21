@@ -62,7 +62,7 @@ export const catsApi = createApi({
 
     getImagesForBreed: builder.query({
       query: (value) => ({
-        url: `images/search?breed_id=${value}&limit=5`,
+        url: `images/search?breed_id=${value.id}&limit=${value.limit}&include_breeds=true`,
       }),
       providesTags: ["Cats"],
     }),
@@ -87,6 +87,13 @@ export const catsApi = createApi({
       }),
       providesTags: ["Cats"],
     }),
+
+    //  getAllImages: builder.query({
+    //   query: (value) => ({
+    //     url: `images/search?limit=${value}&include_breeds=true`,
+    //   }),
+    //   providesTags: ["Cats"],
+    // }),
   }),
 });
 
@@ -101,4 +108,5 @@ export const {
   useGetBreedByNameQuery,
   useGetBreedByIdQuery,
   useGetAllBreedsQuery,
+  // useGetAllImagesQuery,
 } = catsApi;

@@ -21,6 +21,37 @@ const SelectsWrapper = styled.div`
   justify-content: space-evenly;
 `;
 
+const SelectField = styled.select`
+  appearance: none;
+  width: 226px;
+  height: 40px;
+  padding-left: 14px;
+  border-color: transparent;
+  border-radius: 10px;
+  background-color: ${(props) => props.theme.lightGreyBgColor};
+
+  &:focus,
+  &:active {
+    border-color: transparent;
+    outline: none;
+  }
+`;
+const LimitField = styled.select`
+  appearance: none;
+  width: 101px;
+  height: 40px;
+  padding-left: 14px;
+  border-color: transparent;
+  border-radius: 10px;
+  background-color: ${(props) => props.theme.lightGreyBgColor};
+
+  &:focus,
+  &:active {
+    border-color: transparent;
+    outline: none;
+  }
+`;
+
 const SortButton = styled.button`
   width: 40px;
   height: 40px;
@@ -29,7 +60,7 @@ const SortButton = styled.button`
   background-color: ${(props) => props.theme.lightGreyBgColor};
 `;
 
-export { BreedButton, SelectsWrapper, SortButton };
+export { BreedButton, SelectsWrapper, SortButton, SelectField, LimitField };
 
 // export const customBreedStyles = {
 //   container: () => ({

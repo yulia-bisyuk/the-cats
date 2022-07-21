@@ -28,7 +28,7 @@ const SearchForBreedsPage = () => {
     if(breed && breed.length !== 0) setBreedId(breed[0].id);
   }, [ isSuccess, breed ]);
 
-   const { data: images, isLoading } = useGetImagesForBreedQuery(breedId);
+   const { data: images, isLoading } = useGetImagesForBreedQuery({id: breedId, limit: 5});
 
   return (
     <PagesPositioningWrapper>

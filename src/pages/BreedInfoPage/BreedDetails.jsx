@@ -1,6 +1,7 @@
 import { BreedDetailsWrapper, DetailsColumn, DetailTitle, DetailContent } from "./BreedInfoPage.styled"
 
 export const BreedDetails = ({breed}) => {
+
     return(
         <BreedDetailsWrapper >
        <DetailsColumn><DetailContent><DetailTitle className="temperament">Temperament: </DetailTitle>{breed.temperament}</DetailContent></DetailsColumn>

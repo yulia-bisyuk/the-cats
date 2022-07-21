@@ -41,8 +41,8 @@ const {data: breed, isSuccess} = useGetBreedByIdQuery(selectedBreed.id)
     renderCenterRightControls={null}
     renderBottomCenterControls={props => renderDotControls(props)}
   >
-    {selectedBreedImages.map(image => <ImageToVote width='640px'
-    height='360px' alt='' src={image.url} />)}
+    {selectedBreedImages.map((image, index) => <ImageToVote width='640px'
+    height='360px' alt='' src={image.url} key={index}/>)}
   </Carousel> 
 
 
