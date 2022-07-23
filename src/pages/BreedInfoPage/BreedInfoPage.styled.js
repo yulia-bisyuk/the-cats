@@ -35,8 +35,10 @@ const BreedTitle = styled.h1`
 `;
 const TitleWrapper = styled.div`
   position: absolute;
-  left: 223px;
-  top: -31px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: fit-content;
   padding: 5px 40px;
   background-color: white;
 `;

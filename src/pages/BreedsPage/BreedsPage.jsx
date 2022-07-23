@@ -15,40 +15,42 @@ import { useEffect } from "react";
 
 
 const BreedsPage = () => {
-    const [breedId, setBreedId] = useState('');
+    const [breedId, setBreedId] = useState('all');
     const [limit, setLimit] = useState(5);
     const [breedsOptions, setBreedsOptions] = useState([]);
     const [imagesForAllBreeds, setImagesForAllBreeds] = useState([]);
     const [imagesToRender, setImagesToRender] = useState([]);
-    const [reverse, setReverse] = useState(false);
 
  const {data: breeds, isSuccess, isFetching, isLoading} = useGetAllBreedsQuery();
 const { data: imagesForOneBreed, isLoading: loading, isFetching: fetching } = useGetImagesForBreedQuery({id: breedId, limit: limit});
-if(isSuccess) console.log('breeds', breeds);
 
 useEffect(() => {
-  // eslint-disable-next-line
-  if(isSuccess) setImagesForAllBreeds(breeds.map(breed => 
-  {if(breed.image !== undefined) {
-return ({name: breed.name, url: breed.image.url})
-  }}
-).filter(image => image !==undefined).slice(0,limit));
+  if(isSuccess) setImagesForAllBreeds(breeds
+    // eslint-disable-next-line
+    .map(breed => {
+    if(breed.image !== undefined) {
+      return ({breeds: [{...breed}], url: breed.image.url, id: breed.image.id})
+    }})
+  .sort(() => Math.random() - 0.5)
+  .filter(image => image !==undefined).slice(0,limit));
 }, [isSuccess, breeds, limit]);
 
 useEffect(() => {
 if(breeds !== [] && isSuccess) setBreedsOptions([{id: 'all', name: 'All breeds'}]
 .concat(breeds.map(breed => ({id: breed.id, name: breed.name}))));
-
-if(breeds !== [] && isSuccess && reverse) setBreedsOptions([{id: 'all', name: 'All breeds'}]
-.concat([...breeds].reverse().map(breed => ({id: breed.id, name: breed.name}))));
-}, [breeds, isSuccess, reverse])
-
+}, [breeds, isSuccess]);
 
 useEffect(() => {
   if(isSuccess) setImagesToRender(breedId === 'all' ? imagesForAllBreeds : imagesForOneBreed);
-  
 }, [isSuccess, imagesForAllBreeds, imagesForOneBreed, breedId])
-console.log('imagesToRender', imagesToRender);
+
+const handleAlphabeticSort = () => {
+  setImagesForAllBreeds(prevImages => [...prevImages].sort((a, b) => a.breeds[0].name.localeCompare(b.breeds[0].name)));
+};
+
+const handleRevertAlphabeticSort = () => {
+setImagesForAllBreeds(prevImages => [...prevImages].sort((a, b) => b.breeds[0].name.localeCompare(a.breeds[0].name)))
+}
 
     return(
          <PagesPositioningWrapper>
@@ -71,12 +73,12 @@ console.log('imagesToRender', imagesToRender);
               <option value={15}>Limit: 15</option>
               <option value={20}>Limit: 20</option>
           </LimitField>
-         <SortButton onClick={() => setReverse(true)}>
+         <SortButton onClick={handleAlphabeticSort}>
              <svg width="20" height="20">
           <use href={sprite + "#icon-sort-20"} />
         </svg>
          </SortButton>
-         <SortButton onClick={() => setReverse(false)}>
+         <SortButton onClick={handleRevertAlphabeticSort}>
              <svg width="20" height="20">
           <use href={sprite + "#icon-sort-revert-20"} />
         </svg>

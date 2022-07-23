@@ -6,15 +6,16 @@
   return (
       <ul
         style={{
-            borderRadius: '20px',
-            width: '110px',
-            alignItems: 'center',
-            height: '30px',
-            backgroundColor: 'white',
+          borderRadius: '20px',
+          width: '110px',
+          alignItems: 'center',
+          height: '30px',
+          backgroundColor: 'white',
           position: 'relative',
           margin: '0px',
-          top: '15px',
-          left: '15px',
+          top: '30px',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
           padding: '0px',
           display: 'flex',
           justifyContent: 'space-evenly',

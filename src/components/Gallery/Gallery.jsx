@@ -23,6 +23,8 @@ const Gallery = ({ items }) => {
     JSON.parse(window.localStorage.getItem("removeLogs")) || []
   );
 
+  // console.log(items, 'itemsFromGallery')
+
   const activityLogger = (id, type) => {
     const date = new Date().toTimeString().slice(0, 5);
 
@@ -79,7 +81,7 @@ const Gallery = ({ items }) => {
                       )}
                       {(location.pathname === "/breeds-search-by-name" ||
                         location.pathname === "/breeds") && (
-                        <BreedsPageHoverContent breed={item.breeds[0]} images={items} />
+                        <BreedsPageHoverContent breed={item.breeds[0]} />
                       )}
                     </Overlay>
                   )}

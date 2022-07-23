@@ -30,6 +30,8 @@ const SearchForBreedsPage = () => {
 
    const { data: images, isLoading } = useGetImagesForBreedQuery({id: breedId, limit: 5});
 
+  //  console.log('imagesFromSearchForBreedsPage', images)
+
   return (
     <PagesPositioningWrapper>
       <SearchForm />

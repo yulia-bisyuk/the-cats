@@ -7,23 +7,18 @@ import GoBackGroup from "components/GoBackGroup";
 import { BreedDetails } from "./BreedDetails";
 import { BreedId, Wrapper, BreedInfoWrapper, BreedTitle, TitleWrapper, BreedFor } from "./BreedInfoPage.styled";
 import { ImageToVote } from "pages/VotingPage/VotingPage.styled";
-import { useGetBreedByIdQuery } from "redux/catsApi";
+import { useGetImagesForBreedQuery } from "redux/catsApi";
 import { renderDotControls } from "./Slider";
 import Carousel from 'nuka-carousel';
+import ClipLoader from "react-spinners/ClipLoader";
+import { LoaderWrapper } from "pages/VotingPage/VotingPage.styled";
 
 
 const BreedInfoPage = () => {
 const selectedBreed = JSON.parse(localStorage.getItem('selectedBreed'));
-const selectedBreedImages = JSON.parse(localStorage.getItem('selectedBreedImages'));
+const { data: imagesForOneBreed, isSuccess, isLoading } = useGetImagesForBreedQuery({id: selectedBreed.id, limit: 5});
 
-console.log('selectedBreed', selectedBreed);
-console.log('selectedBreedImages', selectedBreedImages);
-
-const {data: breed, isSuccess} = useGetBreedByIdQuery(selectedBreed.id)
- if(isSuccess) console.log('selectedBreedAPI', breed);
-
-
-
+if(isSuccess) console.log('imagesForOneBreed', imagesForOneBreed);
 
     return(
        <PagesPositioningWrapper>
@@ -33,6 +28,11 @@ const {data: breed, isSuccess} = useGetBreedByIdQuery(selectedBreed.id)
         <GoBackGroup btnText="breeds" />
         <BreedId>{selectedBreed.id}</BreedId>
         </Wrapper>
+        {isLoading && (
+          <LoaderWrapper>
+            <ClipLoader color="#FF868E" size="100px" />
+          </LoaderWrapper>
+        )}
 
         <Carousel
     wrapAround={true}
@@ -41,11 +41,11 @@ const {data: breed, isSuccess} = useGetBreedByIdQuery(selectedBreed.id)
     renderCenterRightControls={null}
     renderBottomCenterControls={props => renderDotControls(props)}
   >
-    {selectedBreedImages.map((image, index) => <ImageToVote width='640px'
+   
+    {isSuccess && imagesForOneBreed.map((image, index) => <ImageToVote width='640px'
     height='360px' alt='' src={image.url} key={index}/>)}
+     
   </Carousel> 
-
-
        <BreedInfoWrapper>
        <TitleWrapper><BreedTitle>{selectedBreed.name}</BreedTitle></TitleWrapper>
        <BreedFor>{selectedBreed.description}</BreedFor>
