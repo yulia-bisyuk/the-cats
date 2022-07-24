@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/the-cats/static/css/main.731ad6af.css",
-    "main.js": "/the-cats/static/js/main.547b1f04.js",
+    "main.js": "/the-cats/static/js/main.c22b2b3c.js",
     "static/js/710.fd9379de.chunk.js": "/the-cats/static/js/710.fd9379de.chunk.js",
     "static/js/156.017a3abd.chunk.js": "/the-cats/static/js/156.017a3abd.chunk.js",
     "static/js/270.9d413074.chunk.js": "/the-cats/static/js/270.9d413074.chunk.js",
@@ -20,7 +20,7 @@
     "static/media/pet-breeds.png": "/the-cats/static/media/pet-breeds.5ee8e4ca61e5fe0a9ab8.png",
     "index.html": "/the-cats/index.html",
     "main.731ad6af.css.map": "/the-cats/static/css/main.731ad6af.css.map",
-    "main.547b1f04.js.map": "/the-cats/static/js/main.547b1f04.js.map",
+    "main.c22b2b3c.js.map": "/the-cats/static/js/main.c22b2b3c.js.map",
     "710.fd9379de.chunk.js.map": "/the-cats/static/js/710.fd9379de.chunk.js.map",
     "156.017a3abd.chunk.js.map": "/the-cats/static/js/156.017a3abd.chunk.js.map",
     "270.9d413074.chunk.js.map": "/the-cats/static/js/270.9d413074.chunk.js.map",
@@ -35,6 +35,6 @@
   },
   "entrypoints": [
     "static/css/main.731ad6af.css",
-    "static/js/main.547b1f04.js"
+    "static/js/main.c22b2b3c.js"
   ]
 }
