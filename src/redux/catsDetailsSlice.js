@@ -18,10 +18,12 @@ export const catsDetailsSlice = createSlice({
 
     getLikedImages(state, action) {
       state.likedImages = [...state.likedImages, { url: action.payload }];
+      if (state.likedImages.length > 20) state.likedImages = [];
     },
 
     getDislikedImages(state, action) {
       state.dislikedImages = [...state.dislikedImages, { url: action.payload }];
+      if (state.dislikedImages.length > 20) state.dislikedImages = [];
     },
   },
 });
