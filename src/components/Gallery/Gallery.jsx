@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
-import { useDeleteFromFavouritesMutation } from "redux/catsApi";
+import {
+  useDeleteFromFavouritesMutation,
+  useAddToFavouritesMutation,
+} from "redux/catsApi";
 import { Logger } from "components/Logger/Logger";
 import FavPageImageHoverContent from "pages/FavouritesPage/FavPageImageHoverContent";
 import BreedsPageHoverContent from "pages/BreedsPage/BreedsPageHoverContent";
@@ -17,13 +20,14 @@ import { useLocation } from "react-router-dom";
 const Gallery = ({ items }) => {
   const location = useLocation();
   const [remove] = useDeleteFromFavouritesMutation();
+  const [add] = useAddToFavouritesMutation();
   const [hovered, setHovered] = useState(false);
   const [hoveredImageId, setHoveredImageId] = useState(null);
   const [removeLogs, setRemoveLogs] = useState(
     JSON.parse(window.localStorage.getItem("removeLogs")) || []
   );
 
-  // console.log(items, 'itemsFromGallery')
+  console.log(hoveredImageId, "hoveredImageId");
 
   const activityLogger = (id, type) => {
     const date = new Date().toTimeString().slice(0, 5);
@@ -61,11 +65,15 @@ const Gallery = ({ items }) => {
                   alt="cat"
                   onMouseOver={() => {
                     setHovered(true);
-                    setHoveredImageId(item.id);
+                    setHoveredImageId(
+                      location.pathname === "/gallery" ? item.image_id : item.id
+                    );
                   }}
+                  //DELETE /favourites/{favourite_id}
+                  //POST https://api.thecatapi.com/v1/favourites
                 />
                 {hovered &&
-                  hoveredImageId === item.id &&
+                  hoveredImageId === (item.image_id || item.id) &&
                   location.pathname !== "/likes" &&
                   location.pathname !== "/dislikes" && (
                     <Overlay
@@ -76,6 +84,13 @@ const Gallery = ({ items }) => {
                           onClick={() => {
                             remove(hoveredImageId);
                             activityLogger(item.image.id, "Favourites");
+                          }}
+                        />
+                      )}
+                      {location.pathname === "/gallery" && (
+                        <FavPageImageHoverContent
+                          onClick={() => {
+                            add({ image_id: hoveredImageId, sub_id: "user" });
                           }}
                         />
                       )}

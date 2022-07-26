@@ -16,7 +16,7 @@ const FavouritesPage = () => {
     isLoading,
   } = useGetUserFavouritesQuery("user");
 
-  console.log(favourites);
+  if (isSuccess) console.log("favourites", favourites);
 
   return (
     <PagesPositioningWrapper>

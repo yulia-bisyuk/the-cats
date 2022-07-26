@@ -96,12 +96,11 @@ const BreedsPage = () => {
         <SelectsWrapper>
           <GoBackGroup btnText="breeds" />
           <SelectField onChange={(e) => setBreedId(e.target.value)}>
-            {isSuccess &&
-              breedsOptions.map((option) => (
-                <option key={option.id} value={option.id} label={option.name}>
-                  {option.name}
-                </option>
-              ))}
+            {breedsOptions.map((option) => (
+              <option key={option.id} value={option.id} label={option.name}>
+                {option.name}
+              </option>
+            ))}
           </SelectField>
 
           <LimitField onChange={(e) => setLimit(e.target.value)}>

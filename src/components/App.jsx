@@ -19,9 +19,9 @@ const BreedInfoPage = lazy(() =>
   import("../pages/BreedInfoPage/BreedInfoPage")
 );
 
-const BreedsPage = lazy(() =>
-  import("../pages/BreedsPage/BreedsPage")
-);
+const BreedsPage = lazy(() => import("../pages/BreedsPage/BreedsPage"));
+
+const GalleryPage = lazy(() => import("../pages/GalleryPage/GalleryPage"));
 
 export const App = () => {
   return (
@@ -41,6 +41,7 @@ export const App = () => {
           <Route exact path="breeds" element={<BreedsPage />} />
           {/* поправити адресу на breeds/info */}
           <Route exact path="info" element={<BreedInfoPage />} />
+          <Route exact path="gallery" element={<GalleryPage />} />
         </Routes>
       </Layout>
     </Suspense>

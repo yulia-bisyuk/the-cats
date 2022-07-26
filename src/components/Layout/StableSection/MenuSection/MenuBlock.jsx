@@ -1,8 +1,6 @@
-// import { useNavigate } from "react-router-dom";
 import { ImgWrapper, MenuLink } from "./MenuSection.styled";
 
 export const MenuBlock = ({ style, src, alt, text, navigateTo }) => {
-  // const navigate = useNavigate();
 
   return (
     <div>
