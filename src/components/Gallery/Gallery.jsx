@@ -27,8 +27,6 @@ const Gallery = ({ items }) => {
     JSON.parse(window.localStorage.getItem("removeLogs")) || []
   );
 
-  console.log(hoveredImageId, "hoveredImageId");
-
   const activityLogger = (id, type) => {
     const date = new Date().toTimeString().slice(0, 5);
 
@@ -65,15 +63,11 @@ const Gallery = ({ items }) => {
                   alt="cat"
                   onMouseOver={() => {
                     setHovered(true);
-                    setHoveredImageId(
-                      location.pathname === "/gallery" ? item.image_id : item.id
-                    );
+                    setHoveredImageId(item.id);
                   }}
-                  //DELETE /favourites/{favourite_id}
-                  //POST https://api.thecatapi.com/v1/favourites
                 />
                 {hovered &&
-                  hoveredImageId === (item.image_id || item.id) &&
+                  hoveredImageId === item.id &&
                   location.pathname !== "/likes" &&
                   location.pathname !== "/dislikes" && (
                     <Overlay

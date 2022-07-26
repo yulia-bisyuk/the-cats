@@ -62,7 +62,7 @@ export const catsApi = createApi({
 
     getImagesForBreed: builder.query({
       query: (value) => ({
-        url: `images/search?breed_id=${value.id}&limit=${value.limit}&include_breeds=true`,
+        url: `images/search?breed_id=${value.id}&limit=${value.limit}&order=${value.order}&include_breeds=true`,
       }),
       providesTags: ["Cats"],
     }),

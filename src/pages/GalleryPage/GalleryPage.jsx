@@ -1,5 +1,9 @@
 import { useEffect, useState } from "react";
-import { useGetAllBreedsQuery, useGetAllImagesQuery } from "redux/catsApi";
+import {
+  useGetAllBreedsQuery,
+  useGetAllImagesQuery,
+  useGetImagesForBreedQuery,
+} from "redux/catsApi";
 import SearchForm from "components/SearchForm";
 import Gallery from "components/Gallery";
 import sprite from "../../icons/sprite.svg";
@@ -37,28 +41,47 @@ const GalleryPage = () => {
   const [limit, setLimit] = useState(5);
   const [imagesToRender, setImagesToRender] = useState([]);
   const {
+    data: imagesForOneBreed,
+    isSuccess: successful,
+    isLoading: loadingProcess,
+    isFetching: fetchingProcess,
+  } = useGetImagesForBreedQuery(
+    { id: breed, limit, order },
+    { skip: breed === "none" }
+  );
+  const {
     data: allImages,
     isSuccess: success,
     isLoading: loading,
     isFetching: fetching,
-  } = useGetAllImagesQuery({
-    order,
-    limit,
-  });
+  } = useGetAllImagesQuery(
+    {
+      order,
+      limit,
+    },
+    { skip: breed !== "none" }
+  );
+
+  const sortByType = (images, type) => {
+    return images.filter((image) => image.url.endsWith(type));
+  };
 
   useEffect(() => {
     if (success && type === "All") setImagesToRender(allImages);
     else if (type === "Static")
-      setImagesToRender(() =>
-        allImages.filter((image) => image.url.endsWith("jpg" || "png"))
-      );
+      setImagesToRender(sortByType(allImages, "jpg" || "png"));
     else if (type === "Animated")
-      setImagesToRender(() =>
-        allImages.filter((image) => image.url.endsWith("gif"))
-      );
+      setImagesToRender(sortByType(allImages, "gif"));
   }, [type, success, allImages]);
 
-  console.log("imagesToRender", imagesToRender);
+  useEffect(() => {
+    if (successful && breed !== "none" && type === "All") {
+      setImagesToRender(imagesForOneBreed);
+    } else if (breed !== "none" && type === "Static")
+      setImagesToRender(sortByType(imagesForOneBreed, "jpg" || "png"));
+    else if (breed !== "none" && type === "Animated")
+      setImagesToRender([] || sortByType(imagesForOneBreed, "gif"));
+  }, [imagesForOneBreed, successful, breed, type, limit]);
 
   useEffect(() => {
     if (breeds !== [] && isSuccess)
@@ -167,7 +190,12 @@ const GalleryPage = () => {
             </OptionWrapper>
           </div>
         </OptionsSection>
-        {isLoading || loading || isFetching || fetching ? (
+        {isLoading ||
+        loading ||
+        isFetching ||
+        fetching ||
+        loadingProcess ||
+        fetchingProcess ? (
           <LoaderWrapper>
             <ClipLoader color="#FF868E" size="100px" />
           </LoaderWrapper>

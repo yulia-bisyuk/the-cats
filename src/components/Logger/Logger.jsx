@@ -23,17 +23,19 @@ export const Logger = ({ activities, text }) => {
 
   return (
     <LogList>
-      {activities.map((activity) => (
-        <LogListItem key={activity.imageId}>
-          <Time>{activity.time}</Time>{" "}
-          <Text>
-            Image ID: <Id>{activity.imageId}</Id> {text} {activity.type}
-          </Text>
-          <Icon width="20" height="20">
-            <use href={sprite + icon(activity.type)} />
-          </Icon>
-        </LogListItem>
-      ))}
+      {activities
+        .map((activity, i) => (
+          <LogListItem key={i}>
+            <Time>{activity.time}</Time>{" "}
+            <Text>
+              Image ID: <Id>{activity.imageId}</Id> {text} {activity.type}
+            </Text>
+            <Icon width="20" height="20">
+              <use href={sprite + icon(activity.type)} />
+            </Icon>
+          </LogListItem>
+        ))
+        .reverse()}
     </LogList>
   );
 };
