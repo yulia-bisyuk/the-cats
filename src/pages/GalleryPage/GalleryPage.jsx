@@ -6,6 +6,7 @@ import {
 } from "redux/catsApi";
 import SearchForm from "components/SearchForm";
 import Gallery from "components/Gallery";
+import Modal from "components/Modal";
 import sprite from "../../icons/sprite.svg";
 import ClipLoader from "react-spinners/ClipLoader";
 import { LoaderWrapper } from "pages/VotingPage/VotingPage.styled";
@@ -28,18 +29,19 @@ import {
 import { orders, types, limits } from "./SelectOptions";
 
 const GalleryPage = () => {
-  const {
-    data: breeds,
-    isSuccess,
-    isLoading,
-    isFetching,
-  } = useGetAllBreedsQuery();
   const [breedsOptions, setBreedsOptions] = useState([]);
   const [order, setOrder] = useState("RANDOM");
   const [type, setType] = useState("All");
   const [breed, setBreed] = useState("none");
   const [limit, setLimit] = useState(5);
   const [imagesToRender, setImagesToRender] = useState([]);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const {
+    data: breeds,
+    isSuccess,
+    isLoading,
+    isFetching,
+  } = useGetAllBreedsQuery();
   const {
     data: imagesForOneBreed,
     isSuccess: successful,
@@ -91,6 +93,7 @@ const GalleryPage = () => {
         )
       );
   }, [breeds, isSuccess]);
+  console.log(isModalOpen);
 
   return (
     <PagesPositioningWrapper>
@@ -98,13 +101,15 @@ const GalleryPage = () => {
       <PagesWrapper>
         <Wrapper>
           <GoBackGroup btnText="gallery" />
-          <UploadButton>
+          <UploadButton onClick={() => setIsModalOpen(true)}>
             <svg width="16" height="16" style={{ marginRight: "10px" }}>
               <use href={sprite + "#icon-upload-16"} />
             </svg>
             upload
           </UploadButton>
         </Wrapper>
+
+        {isModalOpen && <Modal />}
 
         <OptionsSection>
           <div>
