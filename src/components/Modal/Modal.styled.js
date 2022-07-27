@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import dummy from "../../pages/images/upload-bg.png";
 
 const Overlay = styled.div`
   position: fixed;
@@ -58,10 +59,76 @@ const PrivacyLink = styled.a`
 `;
 
 const ImageContainer = styled.div`
+  position: relative;
   height: 320px;
+  margin-bottom: 20px;
+  /* padding: 20px 40px; */
   background-color: white;
   border-radius: 20px;
   border: 2px dashed #fbe0dc;
+  background-image: url(${dummy});
+  background-repeat: no-repeat;
+  background-position: center;
+`;
+
+const UploadText = styled.p`
+  margin-top: 145px;
+  text-align: center;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.5;
+  color: ${(props) => props.theme.lightGrayTxtColor};
+  &.file {
+    margin-top: 0px;
+    margin-bottom: 20px;
+  }
+`;
+
+const DragText = styled.span`
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+  color: ${(props) => props.theme.titleColor};
+`;
+
+const ClickInput = styled.input`
+  display: none;
+`;
+
+const ClickLabel = styled.label`
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.5;
+  color: ${(props) => props.theme.titleColor};
+`;
+
+const Image = styled.img`
+  position: absolute;
+  top: 20px;
+  left: 40px;
+  width: 558px;
+  height: 280px;
+  border-radius: 10px;
+  object-fit: cover;
+`;
+
+const UploadButton = styled.button`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 172px;
+  height: 40px;
+  border-color: transparent;
+  border-radius: 10px;
+  background-color: ${(props) => props.theme.pink};
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  text-align: center;
+  letter-spacing: 2px;
+  cursor: pointer;
 `;
 
 export {
@@ -72,4 +139,10 @@ export {
   PrivacyText,
   PrivacyLink,
   ImageContainer,
+  UploadText,
+  DragText,
+  ClickInput,
+  ClickLabel,
+  Image,
+  UploadButton,
 };

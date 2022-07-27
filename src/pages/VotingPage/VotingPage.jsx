@@ -40,7 +40,7 @@ const VotingPage = () => {
 
   const url = isSuccess ? cat[0].url : dummy;
 
-  if (isSuccess) console.log(cat[0].url);
+  if (isSuccess) console.log(cat[0]);
 
   const activityLogger = (id, type) => {
     const date = new Date().toTimeString().slice(0, 5);

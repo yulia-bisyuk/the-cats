@@ -5,8 +5,10 @@ export const catsApi = createApi({
 
   baseQuery: fetchBaseQuery({
     baseUrl: "https://api.thecatapi.com/v1/",
+
     prepareHeaders: (headers) => {
       headers.set("x-api-key", "0b7504df-17ed-43ae-9368-17c81ca0668c");
+      // headers.set("Content-Type", "*");
 
       return headers;
     },
@@ -94,6 +96,15 @@ export const catsApi = createApi({
       }),
       providesTags: ["Cats"],
     }),
+
+    uploadImage: builder.mutation({
+      query: (value) => ({
+        url: `images/upload`,
+        method: "POST",
+        body: value,
+      }),
+      invalidatesTags: ["Cats"],
+    }),
   }),
 });
 
@@ -109,4 +120,5 @@ export const {
   useGetBreedByIdQuery,
   useGetAllBreedsQuery,
   useGetAllImagesQuery,
+  useUploadImageMutation,
 } = catsApi;

@@ -93,7 +93,6 @@ const GalleryPage = () => {
         )
       );
   }, [breeds, isSuccess]);
-  console.log(isModalOpen);
 
   return (
     <PagesPositioningWrapper>
@@ -109,7 +108,7 @@ const GalleryPage = () => {
           </UploadButton>
         </Wrapper>
 
-        {isModalOpen && <Modal />}
+        {isModalOpen && <Modal onClose={() => setIsModalOpen(false)} />}
 
         <OptionsSection>
           <div>
