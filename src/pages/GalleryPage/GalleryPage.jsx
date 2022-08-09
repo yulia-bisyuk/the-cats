@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react";
 import {
+  // useDeleteUploadedImageMutation,
   useGetAllBreedsQuery,
   useGetAllImagesQuery,
   useGetImagesForBreedQuery,
+  useGetUploadedImagesQuery,
 } from "redux/catsApi";
 import SearchForm from "components/SearchForm";
 import Gallery from "components/Gallery";
@@ -44,7 +46,7 @@ const GalleryPage = () => {
   } = useGetAllBreedsQuery();
   const {
     data: imagesForOneBreed,
-    isSuccess: successful,
+    isSuccess: imagesForOneBreedFetched,
     isLoading: loadingProcess,
     isFetching: fetchingProcess,
   } = useGetImagesForBreedQuery(
@@ -53,7 +55,7 @@ const GalleryPage = () => {
   );
   const {
     data: allImages,
-    isSuccess: success,
+    isSuccess: allImagesFetched,
     isLoading: loading,
     isFetching: fetching,
   } = useGetAllImagesQuery(
@@ -64,26 +66,32 @@ const GalleryPage = () => {
     { skip: breed !== "none" }
   );
 
+  // const [deleteImg] = useDeleteUploadedImageMutation();
+
+  const { data: userImage, isSuccess: userImageUploaded } =
+    useGetUploadedImagesQuery();
+  if (userImageUploaded) console.log("userImage", userImage);
+
   const sortByType = (images, type) => {
     return images.filter((image) => image.url.endsWith(type));
   };
 
   useEffect(() => {
-    if (success && type === "All") setImagesToRender(allImages);
+    if (allImagesFetched && type === "All") setImagesToRender(allImages);
     else if (type === "Static")
       setImagesToRender(sortByType(allImages, "jpg" || "png"));
     else if (type === "Animated")
       setImagesToRender(sortByType(allImages, "gif"));
-  }, [type, success, allImages]);
+  }, [type, allImagesFetched, allImages]);
 
   useEffect(() => {
-    if (successful && breed !== "none" && type === "All") {
+    if (imagesForOneBreedFetched && breed !== "none" && type === "All") {
       setImagesToRender(imagesForOneBreed);
     } else if (breed !== "none" && type === "Static")
       setImagesToRender(sortByType(imagesForOneBreed, "jpg" || "png"));
     else if (breed !== "none" && type === "Animated")
       setImagesToRender([] || sortByType(imagesForOneBreed, "gif"));
-  }, [imagesForOneBreed, successful, breed, type, limit]);
+  }, [imagesForOneBreed, imagesForOneBreedFetched, breed, type, limit]);
 
   useEffect(() => {
     if (breeds !== [] && isSuccess)
@@ -93,6 +101,17 @@ const GalleryPage = () => {
         )
       );
   }, [breeds, isSuccess]);
+
+  useEffect(() => {
+    if (userImageUploaded && allImagesFetched) {
+      setImagesToRender((prevImages) => [
+        ...userImage,
+        ...prevImages.slice(0, -1),
+      ]);
+    }
+  }, [userImageUploaded, userImage, allImagesFetched]);
+
+  console.log("imagesToRender", imagesToRender);
 
   return (
     <PagesPositioningWrapper>
@@ -108,7 +127,13 @@ const GalleryPage = () => {
           </UploadButton>
         </Wrapper>
 
-        {isModalOpen && <Modal onClose={() => setIsModalOpen(false)} />}
+        {isModalOpen && (
+          <Modal
+            onClose={() => {
+              setIsModalOpen(false);
+            }}
+          />
+        )}
 
         <OptionsSection>
           <div>
@@ -186,7 +211,10 @@ const GalleryPage = () => {
                   <use href={sprite + "#icon-dropdown-12"} />
                 </DropdownIcon>
               </OptionSelectStylingWrapper>
-              <UpdateButton>
+              <UpdateButton
+                onClick={() => window.location.reload(false)}
+                // onClick={() => deleteImg("R2uIs2DXr")}
+              >
                 <svg width="17" height="20">
                   <use href={sprite + "#icon-update-20"} />
                 </svg>

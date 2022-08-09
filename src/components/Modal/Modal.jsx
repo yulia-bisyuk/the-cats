@@ -1,5 +1,5 @@
 import { createPortal } from "react-dom";
-import { useUploadImageMutation } from "redux/catsApi";
+import axios from "axios";
 import {
   Overlay,
   ModalContainer,
@@ -19,14 +19,25 @@ import sprite from "../../icons/sprite.svg";
 import { useState } from "react";
 
 const Modal = ({ onClose }) => {
+  axios.defaults.headers["x-api-key"] = "0b7504df-17ed-43ae-9368-17c81ca0668c";
+
   const modalRoot = document.querySelector("#modal-root");
   const [uploadedImage, setUploadedImage] = useState(null);
-  const [upload] = useUploadImageMutation();
-
-  console.log("uploadedImage", uploadedImage);
 
   const handleUpload = () => {
-    upload({ file: uploadedImage, sub_id: "user" });
+    axios
+      .post(
+        `https://api.thecatapi.com/v1/images/upload`,
+        {
+          file: uploadedImage,
+          sub_id: "user",
+        },
+        { headers: { "Content-Type": "multipart/form-data" } }
+      )
+      .then((res) => {
+        console.log("res", res);
+        console.log("res.data", res.data);
+      });
   };
 
   return createPortal(
@@ -71,7 +82,9 @@ const Modal = ({ onClose }) => {
             <UploadText className="file">
               Image File Name: {uploadedImage.name}
             </UploadText>
-            <UploadButton onClick={handleUpload}>upload foto</UploadButton>
+            <UploadButton type="button" onClick={handleUpload}>
+              upload foto
+            </UploadButton>
           </>
         ) : (
           <UploadText className="file">No file selected</UploadText>

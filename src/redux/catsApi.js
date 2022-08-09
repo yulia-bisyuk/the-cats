@@ -8,8 +8,6 @@ export const catsApi = createApi({
 
     prepareHeaders: (headers) => {
       headers.set("x-api-key", "0b7504df-17ed-43ae-9368-17c81ca0668c");
-      // headers.set("Content-Type", "*");
-
       return headers;
     },
   }),
@@ -97,14 +95,33 @@ export const catsApi = createApi({
       providesTags: ["Cats"],
     }),
 
-    uploadImage: builder.mutation({
+    getUploadedImages: builder.query({
+      query: () => ({
+        url: `images`,
+      }),
+      providesTags: ["Cats"],
+    }),
+
+    deleteUploadedImage: builder.mutation({
       query: (value) => ({
-        url: `images/upload`,
-        method: "POST",
+        url: `/images/${value}`,
+        method: "DELETE",
         body: value,
       }),
       invalidatesTags: ["Cats"],
     }),
+
+    // uploadImage: builder.mutation({
+    //   query: (value) => ({
+    //     url: `images/upload?file=${value.file}&sub_id=${value.id}`,
+    //     method: "POST",
+    //     headers: (headers) => {
+    //       headers.set("Content-Type", "multipart/form-data");
+    //     },
+    //     body: value,
+    //   }),
+    //   invalidatesTags: ["Cats"],
+    // }),
   }),
 });
 
@@ -120,5 +137,7 @@ export const {
   useGetBreedByIdQuery,
   useGetAllBreedsQuery,
   useGetAllImagesQuery,
-  useUploadImageMutation,
+  useGetUploadedImagesQuery,
+  useDeleteUploadedImageMutation,
+  // useUploadImageMutation,
 } = catsApi;
