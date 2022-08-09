@@ -94,15 +94,6 @@ const GalleryPage = () => {
   }, [imagesForOneBreed, imagesForOneBreedFetched, breed, type, limit]);
 
   useEffect(() => {
-    if (breeds !== [] && isSuccess)
-      setBreedsOptions(
-        [{ id: "none", name: "None" }].concat(
-          breeds.map((breed) => ({ id: breed.id, name: breed.name }))
-        )
-      );
-  }, [breeds, isSuccess]);
-
-  useEffect(() => {
     if (userImageUploaded && allImagesFetched) {
       setImagesToRender((prevImages) => [
         ...userImage,
@@ -112,6 +103,15 @@ const GalleryPage = () => {
   }, [userImageUploaded, userImage, allImagesFetched]);
 
   console.log("imagesToRender", imagesToRender);
+
+  useEffect(() => {
+    if (breeds !== [] && isSuccess)
+      setBreedsOptions(
+        [{ id: "none", name: "None" }].concat(
+          breeds.map((breed) => ({ id: breed.id, name: breed.name }))
+        )
+      );
+  }, [breeds, isSuccess]);
 
   return (
     <PagesPositioningWrapper>
@@ -213,7 +213,7 @@ const GalleryPage = () => {
               </OptionSelectStylingWrapper>
               <UpdateButton
                 onClick={() => window.location.reload(false)}
-                // onClick={() => deleteImg("R2uIs2DXr")}
+                // onClick={() => deleteImg("R2fIj2eWZ")}
               >
                 <svg width="17" height="20">
                   <use href={sprite + "#icon-update-20"} />

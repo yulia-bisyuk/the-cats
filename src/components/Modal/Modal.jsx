@@ -23,6 +23,8 @@ const Modal = ({ onClose }) => {
 
   const modalRoot = document.querySelector("#modal-root");
   const [uploadedImage, setUploadedImage] = useState(null);
+  const [imageIsUploaded, setImageIsUploaded] = useState(false);
+  const [uploadingError, setUploadingError] = useState(false);
 
   const handleUpload = () => {
     axios
@@ -36,7 +38,18 @@ const Modal = ({ onClose }) => {
       )
       .then((res) => {
         console.log("res", res);
-        console.log("res.data", res.data);
+        console.log("res.status", res.status);
+        if (res.status === 201) {
+          setUploadingError(false);
+          setImageIsUploaded(true);
+          setUploadedImage(null);
+        }
+      })
+      .catch((error) => {
+        console.log(error);
+        setUploadingError(true);
+        setImageIsUploaded(false);
+        setUploadedImage(null);
       });
   };
 
@@ -89,6 +102,8 @@ const Modal = ({ onClose }) => {
         ) : (
           <UploadText className="file">No file selected</UploadText>
         )}
+        {uploadingError && <div>No Cat found - try a different one</div>}
+        {imageIsUploaded && <div>Thanks for the Upload - Cat found!</div>}
       </ModalContainer>
     </Overlay>,
     modalRoot

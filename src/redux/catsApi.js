@@ -115,6 +115,7 @@ export const catsApi = createApi({
     //   query: (value) => ({
     //     url: `images/upload?file=${value.file}&sub_id=${value.id}`,
     //     method: "POST",
+
     //     headers: (headers) => {
     //       headers.set("Content-Type", "multipart/form-data");
     //     },
