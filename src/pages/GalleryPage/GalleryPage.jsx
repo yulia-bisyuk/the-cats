@@ -94,7 +94,7 @@ const GalleryPage = () => {
   }, [imagesForOneBreed, imagesForOneBreedFetched, breed, type, limit]);
 
   useEffect(() => {
-    if (userImageUploaded && allImagesFetched) {
+    if (userImageUploaded && userImage.length !== 0 && allImagesFetched) {
       setImagesToRender((prevImages) => [
         ...userImage,
         ...prevImages.slice(0, -1),
@@ -129,8 +129,9 @@ const GalleryPage = () => {
 
         {isModalOpen && (
           <Modal
-            onClose={() => {
-              setIsModalOpen(false);
+            onClose={(e) => {
+              if (e.target === e.currentTarget || e.code === "Escape")
+                setIsModalOpen(false);
             }}
           />
         )}
@@ -213,7 +214,7 @@ const GalleryPage = () => {
               </OptionSelectStylingWrapper>
               <UpdateButton
                 onClick={() => window.location.reload(false)}
-                // onClick={() => deleteImg("R2fIj2eWZ")}
+                // onClick={() => deleteImg("7jbHh3ge0")}
               >
                 <svg width="17" height="20">
                   <use href={sprite + "#icon-update-20"} />

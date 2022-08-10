@@ -14,19 +14,31 @@ import {
   ClickLabel,
   Image,
   UploadButton,
+  Notification,
+  NotificationText,
 } from "./Modal.styled";
+import ClipLoader from "react-spinners/ClipLoader";
 import sprite from "../../icons/sprite.svg";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const Modal = ({ onClose }) => {
   axios.defaults.headers["x-api-key"] = "0b7504df-17ed-43ae-9368-17c81ca0668c";
+
+  useEffect(() => {
+    window.addEventListener("keydown", onClose);
+    return () => {
+      window.removeEventListener("keydown", onClose);
+    };
+  });
 
   const modalRoot = document.querySelector("#modal-root");
   const [uploadedImage, setUploadedImage] = useState(null);
   const [imageIsUploaded, setImageIsUploaded] = useState(false);
   const [uploadingError, setUploadingError] = useState(false);
+  const [isUploading, setIsUploading] = useState(false);
 
   const handleUpload = () => {
+    setIsUploading(true);
     axios
       .post(
         `https://api.thecatapi.com/v1/images/upload`,
@@ -40,6 +52,7 @@ const Modal = ({ onClose }) => {
         console.log("res", res);
         console.log("res.status", res.status);
         if (res.status === 201) {
+          setIsUploading(false);
           setUploadingError(false);
           setImageIsUploaded(true);
           setUploadedImage(null);
@@ -47,6 +60,7 @@ const Modal = ({ onClose }) => {
       })
       .catch((error) => {
         console.log(error);
+        setIsUploading(false);
         setUploadingError(true);
         setImageIsUploaded(false);
         setUploadedImage(null);
@@ -54,10 +68,10 @@ const Modal = ({ onClose }) => {
   };
 
   return createPortal(
-    <Overlay>
+    <Overlay onClick={(e) => onClose(e)}>
       <ModalContainer>
-        <ModalCloseButton onClick={() => onClose()}>
-          <svg width="20" height="20">
+        <ModalCloseButton onClick={(e) => onClose(e)}>
+          <svg onClick={(e) => onClose(e)} width="20" height="20">
             <use href={sprite + "#icon-close-20"} />
           </svg>
         </ModalCloseButton>
@@ -69,6 +83,7 @@ const Modal = ({ onClose }) => {
           </PrivacyLink>{" "}
           or face deletion.
         </PrivacyText>
+
         <ImageContainer>
           <UploadText>
             <DragText>Drag here</DragText> your file or{" "}
@@ -90,20 +105,43 @@ const Modal = ({ onClose }) => {
             />
           )}
         </ImageContainer>
+
         {uploadedImage ? (
           <>
             <UploadText className="file">
               Image File Name: {uploadedImage.name}
             </UploadText>
             <UploadButton type="button" onClick={handleUpload}>
-              upload foto
+              {isUploading ? (
+                <ClipLoader color="white" size="16px" />
+              ) : (
+                "upload foto"
+              )}
             </UploadButton>
           </>
         ) : (
           <UploadText className="file">No file selected</UploadText>
         )}
-        {uploadingError && <div>No Cat found - try a different one</div>}
-        {imageIsUploaded && <div>Thanks for the Upload - Cat found!</div>}
+        {uploadingError && (
+          <Notification>
+            <svg width="20" height="20">
+              <use href={sprite + "#icon-error-20"} />
+            </svg>
+            <NotificationText>
+              No Cat found - try a different one
+            </NotificationText>
+          </Notification>
+        )}
+        {imageIsUploaded && (
+          <Notification>
+            <svg width="20" height="20">
+              <use href={sprite + "#icon-success-20"} />
+            </svg>
+            <NotificationText>
+              Thanks for the Upload - Cat found!
+            </NotificationText>
+          </Notification>
+        )}
       </ModalContainer>
     </Overlay>,
     modalRoot

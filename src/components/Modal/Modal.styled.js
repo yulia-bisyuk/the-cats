@@ -116,6 +116,7 @@ const UploadButton = styled.button`
   display: block;
   margin-left: auto;
   margin-right: auto;
+  margin-bottom: 20px;
   width: 172px;
   height: 40px;
   border-color: transparent;
@@ -129,6 +130,23 @@ const UploadButton = styled.button`
   text-align: center;
   letter-spacing: 2px;
   cursor: pointer;
+`;
+
+const Notification = styled.div`
+  display: flex;
+  padding: 20px;
+  height: 60px;
+  background-color: white;
+  border-radius: 10px;
+`;
+
+const NotificationText = styled.p`
+  margin-left: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+
+  color: ${(props) => props.theme.lightGrayTxtColor};
 `;
 
 export {
@@ -145,4 +163,6 @@ export {
   ClickLabel,
   Image,
   UploadButton,
+  Notification,
+  NotificationText,
 };
