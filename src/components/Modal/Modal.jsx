@@ -49,8 +49,6 @@ const Modal = ({ onClose }) => {
         { headers: { "Content-Type": "multipart/form-data" } }
       )
       .then((res) => {
-        console.log("res", res);
-        console.log("res.status", res.status);
         if (res.status === 201) {
           setIsUploading(false);
           setUploadingError(false);
@@ -72,7 +70,7 @@ const Modal = ({ onClose }) => {
       <ModalContainer>
         <ModalCloseButton onClick={(e) => onClose(e)}>
           <svg onClick={(e) => onClose(e)} width="20" height="20">
-            <use href={sprite + "#icon-close-20"} />
+            <use href={sprite + "#icon-close-no-fill-20"} />
           </svg>
         </ModalCloseButton>
         <ModalTitle>Upload a .jpg or .png Cat Image</ModalTitle>
@@ -84,7 +82,16 @@ const Modal = ({ onClose }) => {
           or face deletion.
         </PrivacyText>
 
-        <ImageContainer>
+        <ImageContainer
+          id="drop_zone"
+          onDrop={(e) => {
+            e.preventDefault();
+            setUploadedImage(e.dataTransfer.files[0]);
+          }}
+          onDragOver={(e) => {
+            e.preventDefault();
+          }}
+        >
           <UploadText>
             <DragText>Drag here</DragText> your file or{" "}
             <ClickInput

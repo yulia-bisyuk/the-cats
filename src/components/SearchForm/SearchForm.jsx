@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { submit } from "redux/catsDetailsSlice";
 import sprite from "../../icons/sprite.svg";
 import {
@@ -13,7 +13,6 @@ import {
 const SearchForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const location = useLocation();
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,7 +23,11 @@ const SearchForm = () => {
 
   return (
     <FormWrapper>
-      <form autoComplete="off" onSubmit={handleSubmit}>
+      <form
+        autoComplete="off"
+        onSubmit={handleSubmit}
+        style={{ position: "relative" }}
+      >
         <FormLabel>Sarch for breeds</FormLabel>
 
         <FormInput
@@ -35,45 +38,27 @@ const SearchForm = () => {
         />
         <SubmitBtn type="submit">
           <svg width="20" height="20">
-            <use href={sprite + "#icon-search-20"} />
+            <use href={sprite + "#icon-search-no-fill-20"} />
           </svg>
         </SubmitBtn>
       </form>
 
       <ReactionLink to="/likes">
-        {location.pathname === "/likes" ? (
-          <svg width="30" height="30">
-            <use href={sprite + "#icon-like-white-30"} />
-          </svg>
-        ) : (
-          <svg width="30" height="30">
-            <use href={sprite + "#icon-like-30"} />
-          </svg>
-        )}
+        <svg width="30" height="30">
+          <use href={sprite + "#icon-like-no-fill-30"} />
+        </svg>
       </ReactionLink>
 
       <ReactionLink to="/favourites">
-        {location.pathname === "/favourites" ? (
-          <svg width="30" height="30">
-            <use href={sprite + "#icon-Vector-348-white-Stroke"} />
-          </svg>
-        ) : (
-          <svg width="30" height="30">
-            <use href={sprite + "#icon-Vector-348-Stroke"} />
-          </svg>
-        )}
+        <svg width="30" height="30">
+          <use href={sprite + "#icon-Vector-348-no-fill-Stroke"} />
+        </svg>
       </ReactionLink>
 
       <ReactionLink to="/dislikes">
-        {location.pathname === "/dislikes" ? (
-          <svg width="30" height="30">
-            <use href={sprite + "#icon-dislike-white-30"} />
-          </svg>
-        ) : (
-          <svg width="30" height="30">
-            <use href={sprite + "#icon-dislike-30"} />
-          </svg>
-        )}
+        <svg width="30" height="30">
+          <use href={sprite + "#icon-dislike-no-fill-30"} />
+        </svg>
       </ReactionLink>
     </FormWrapper>
   );

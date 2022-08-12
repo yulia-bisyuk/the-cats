@@ -4,14 +4,16 @@ import Gallery from "components/Gallery";
 import GoBackGroup from "components/GoBackGroup";
 import ClipLoader from "react-spinners/ClipLoader";
 import { LoaderWrapper } from "pages/VotingPage/VotingPage.styled";
+import { DropdownIcon } from "pages/GalleryPage/GalleryPage.styled";
 import {
   PagesWrapper,
-  PagesPositioningWrapper,
+  PagesContentWrapper,
 } from "../../constants/common-styles";
 import { useGetAllBreedsQuery, useGetImagesForBreedQuery } from "redux/catsApi";
 import sprite from "../../icons/sprite.svg";
 import {
   SelectsWrapper,
+  FieldWrapper,
   SortButton,
   SelectField,
   LimitField,
@@ -90,25 +92,34 @@ const BreedsPage = () => {
   };
 
   return (
-    <PagesPositioningWrapper>
+    <PagesWrapper>
       <SearchForm />
-      <PagesWrapper>
+      <PagesContentWrapper>
         <SelectsWrapper>
-          <GoBackGroup btnText="breeds" />
-          <SelectField onChange={(e) => setBreedId(e.target.value)}>
-            {breedsOptions.map((option) => (
-              <option key={option.id} value={option.id} label={option.name}>
-                {option.name}
-              </option>
-            ))}
-          </SelectField>
-
-          <LimitField onChange={(e) => setLimit(e.target.value)}>
-            <option value={5}>Limit: 5</option>
-            <option value={10}>Limit: 10</option>
-            <option value={15}>Limit: 15</option>
-            <option value={20}>Limit: 20</option>
-          </LimitField>
+          <GoBackGroup text="breeds" />
+          <FieldWrapper>
+            <SelectField onChange={(e) => setBreedId(e.target.value)}>
+              {breedsOptions.map((option) => (
+                <option key={option.id} value={option.id} label={option.name}>
+                  {option.name}
+                </option>
+              ))}
+            </SelectField>
+            <DropdownIcon width="12" height="12">
+              <use href={sprite + "#icon-dropdown-12"} />
+            </DropdownIcon>
+          </FieldWrapper>
+          <FieldWrapper>
+            <LimitField onChange={(e) => setLimit(e.target.value)}>
+              <option value={5}>Limit: 5</option>
+              <option value={10}>Limit: 10</option>
+              <option value={15}>Limit: 15</option>
+              <option value={20}>Limit: 20</option>
+            </LimitField>
+            <DropdownIcon width="12" height="12">
+              <use href={sprite + "#icon-dropdown-12"} />
+            </DropdownIcon>
+          </FieldWrapper>
           <SortButton onClick={handleAlphabeticSort}>
             <svg width="20" height="20">
               <use href={sprite + "#icon-sort-20"} />
@@ -128,8 +139,8 @@ const BreedsPage = () => {
         ) : (
           <Gallery items={imagesToRender} />
         )}
-      </PagesWrapper>
-    </PagesPositioningWrapper>
+      </PagesContentWrapper>
+    </PagesWrapper>
   );
 };
 

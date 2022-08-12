@@ -30,6 +30,15 @@ const ModalCloseButton = styled.button`
   border-color: transparent;
   border-radius: 10px;
   cursor: pointer;
+  &:hover {
+    background-color: ${(props) => props.theme.pink};
+    svg {
+      fill: white;
+    }
+  }
+  svg {
+    fill: ${(props) => props.theme.pink};
+  }
 `;
 
 const ModalTitle = styled.h1`
@@ -130,6 +139,10 @@ const UploadButton = styled.button`
   text-align: center;
   letter-spacing: 2px;
   cursor: pointer;
+  :hover {
+    background-color: ${(props) => props.theme.lightPink};
+    color: ${(props) => props.theme.pink};
+  }
 `;
 
 const Notification = styled.div`

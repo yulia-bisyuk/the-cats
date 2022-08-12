@@ -17,8 +17,8 @@ const ImageToVote = styled.img`
 `;
 const ButtonsWrapper = styled.div`
   position: absolute;
-  top: 464px;
-  left: 212px;
+  top: 387px;
+  right: 228px;
   width: 252px;
   height: 84px;
   margin-left: auto;
@@ -37,6 +37,16 @@ const ButtonLike = styled.button`
   border-color: transparent;
   background-color: ${(props) => props.theme.green};
   cursor: pointer;
+  svg {
+    fill: white;
+  }
+
+  &:hover {
+    background-color: ${(props) => props.theme.lightGreen};
+    svg {
+      fill: ${(props) => props.theme.green};
+    }
+  }
 `;
 const ButtonFav = styled.button`
   width: 80px;
@@ -44,6 +54,16 @@ const ButtonFav = styled.button`
   border-color: transparent;
   background-color: ${(props) => props.theme.pink};
   cursor: pointer;
+  svg {
+    fill: white;
+  }
+
+  &:hover {
+    background-color: ${(props) => props.theme.lightPink};
+    svg {
+      fill: ${(props) => props.theme.pink};
+    }
+  }
 `;
 const ButtonDislike = styled.button`
   width: 80px;
@@ -52,6 +72,16 @@ const ButtonDislike = styled.button`
   border-radius: 0px 20px 20px 0px;
   background-color: ${(props) => props.theme.yellow};
   cursor: pointer;
+  svg {
+    fill: white;
+  }
+
+  &:hover {
+    background-color: ${(props) => props.theme.lightYellow};
+    svg {
+      fill: ${(props) => props.theme.yellow};
+    }
+  }
 `;
 
 export {

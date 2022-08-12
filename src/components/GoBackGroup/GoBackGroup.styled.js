@@ -13,11 +13,20 @@ const GoBackBtn = styled.button`
   border-radius: 10px;
   border-color: transparent;
   background-color: ${(props) => props.theme.lightPink};
+  cursor: pointer;
+  &:hover {
+    background-color: ${(props) => props.theme.pink};
+    svg {
+      fill: white;
+    }
+  }
+  svg {
+    fill: ${(props) => props.theme.pink};
+  }
 `;
-const CurrentPageBtn = styled.button`
-  padding: 3px 28px;
+const CurrentPagePointer = styled.div`
+  padding: 5px 30px;
   border-radius: 10px;
-  border-color: transparent;
   font-weight: 500;
   font-size: 20px;
   line-height: 1.5;
@@ -27,4 +36,4 @@ const CurrentPageBtn = styled.button`
   color: white;
   background-color: ${(props) => props.theme.pink};
 `;
-export { GoBackBtn, CurrentPageBtn, BtnsWrapper };
+export { GoBackBtn, CurrentPagePointer, BtnsWrapper };

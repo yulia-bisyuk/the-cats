@@ -1,16 +1,22 @@
-import { WelcomeSection } from "./WelcomeSection/WelcomeSection";
-import { MenuSection } from "./MenuSection/MenuSection";
-import { Logo } from "./Logo/Logo";
-import { SectionWrapper } from "./StableSection.styled";
+import { Menu } from "./MenuSection/Menu";
+import { Logo } from "./Logo";
+import {
+  SectionWrapper,
+  Title,
+  WelcomeTxt,
+  SubTitle,
+} from "./StableSection.styled";
 
 export const StableSection = () => {
   return (
     <SectionWrapper>
       <Logo />
-      <div style={{ width: "446px", height: "450px" }}>
-        <WelcomeSection />
-        <MenuSection />
-      </div>
+
+      <Title>Hi student!</Title>
+      <WelcomeTxt>Welcome to 2022 Front-end test</WelcomeTxt>
+      <SubTitle>Lets start using The Cat API</SubTitle>
+
+      <Menu />
     </SectionWrapper>
   );
 };

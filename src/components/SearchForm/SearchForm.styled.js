@@ -22,11 +22,11 @@ const FormLabel = styled.label`
 
 const FormInput = styled.input`
   box-sizing: border-box;
-  position: relative;
   width: 470px;
   height: 60px;
   padding: 0px 20px 0px 20px;
   outline: none;
+  border-style: solid;
   border-radius: 20px;
   border-color: transparent;
   background-color: white;
@@ -41,6 +41,9 @@ const FormInput = styled.input`
     font-size: 20px;
     line-height: 1.5;
   }
+  :hover {
+    border-color: ${(props) => props.theme.lightPink};
+  }
   :active,
   :focus {
     border-color: ${(props) => props.theme.pink};
@@ -49,16 +52,25 @@ const FormInput = styled.input`
 
 const SubmitBtn = styled.button`
   position: absolute;
-  left: 409px;
-  top: 9px;
-
+  right: 10px;
+  top: 10px;
   width: 40px;
   height: 40px;
   border-radius: 10px;
   border-color: transparent;
   background-color: ${(props) => props.theme.lightPink};
   cursor: pointer;
+  &:hover {
+    background-color: ${(props) => props.theme.pink};
+    svg {
+      fill: white;
+    }
+  }
+  svg {
+    fill: ${(props) => props.theme.pink};
+  }
 `;
+
 const ReactionLink = styled(NavLink)`
   width: 60px;
   height: 60px;
@@ -67,9 +79,19 @@ const ReactionLink = styled(NavLink)`
   justify-content: center;
   border-radius: 20px;
   background-color: white;
+  svg {
+    fill: ${(props) => props.theme.pink};
+  }
+
+  &:hover {
+    background-color: ${(props) => props.theme.lightPink};
+  }
 
   &.active {
     background-color: ${(props) => props.theme.pink};
+    svg {
+      fill: white;
+    }
   }
 `;
 

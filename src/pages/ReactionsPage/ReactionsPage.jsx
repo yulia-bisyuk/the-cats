@@ -4,7 +4,7 @@ import Gallery from "components/Gallery";
 import GoBackGroup from "components/GoBackGroup";
 import {
   PagesWrapper,
-  PagesPositioningWrapper,
+  PagesContentWrapper,
 } from "../../constants/common-styles";
 import {
   getLikedImageslValue,
@@ -18,17 +18,17 @@ const LikesPage = () => {
   const dislikes = useSelector(getDislikedImageslValue);
   console.log("imageUrl", likes);
 
-  const btnText = location.pathname === "/likes" ? "Likes" : "Dislikes";
+  const text = location.pathname === "/likes" ? "Likes" : "Dislikes";
 
   return (
-    <PagesPositioningWrapper>
+    <PagesWrapper>
       <SearchForm />
-      <PagesWrapper>
-        <GoBackGroup btnText={btnText} />
+      <PagesContentWrapper>
+        <GoBackGroup text={text} />
         {location.pathname === "/likes" && <Gallery items={likes} />}
         {location.pathname === "/dislikes" && <Gallery items={dislikes} />}
-      </PagesWrapper>
-    </PagesPositioningWrapper>
+      </PagesContentWrapper>
+    </PagesWrapper>
   );
 };
 

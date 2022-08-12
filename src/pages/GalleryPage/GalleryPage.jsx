@@ -14,7 +14,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import { LoaderWrapper } from "pages/VotingPage/VotingPage.styled";
 import {
   PagesWrapper,
-  PagesPositioningWrapper,
+  PagesContentWrapper,
 } from "../../constants/common-styles";
 import GoBackGroup from "components/GoBackGroup";
 import {
@@ -114,14 +114,14 @@ const GalleryPage = () => {
   }, [breeds, isSuccess]);
 
   return (
-    <PagesPositioningWrapper>
+    <PagesWrapper>
       <SearchForm />
-      <PagesWrapper>
+      <PagesContentWrapper>
         <Wrapper>
-          <GoBackGroup btnText="gallery" />
+          <GoBackGroup text="gallery" />
           <UploadButton onClick={() => setIsModalOpen(true)}>
             <svg width="16" height="16" style={{ marginRight: "10px" }}>
-              <use href={sprite + "#icon-upload-16"} />
+              <use href={sprite + "#icon-upload-no-fill-16"} />
             </svg>
             upload
           </UploadButton>
@@ -235,8 +235,8 @@ const GalleryPage = () => {
         ) : (
           <Gallery items={imagesToRender} />
         )}
-      </PagesWrapper>
-    </PagesPositioningWrapper>
+      </PagesContentWrapper>
+    </PagesWrapper>
   );
 };
 

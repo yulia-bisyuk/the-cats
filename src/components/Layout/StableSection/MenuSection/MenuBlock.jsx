@@ -1,7 +1,6 @@
-import { ImgWrapper, MenuLink } from "./MenuSection.styled";
+import { ImgWrapper, MenuLink } from "./Menu.styled";
 
 export const MenuBlock = ({ style, src, alt, text, navigateTo }) => {
-
   return (
     <div>
       <ImgWrapper style={style}>
@@ -11,11 +10,7 @@ export const MenuBlock = ({ style, src, alt, text, navigateTo }) => {
           style={{ height: "186px", width: "130px" }}
         ></img>
       </ImgWrapper>
-      <MenuLink
-         to={navigateTo}
-      >
-        {text}
-      </MenuLink>
+      <MenuLink to={navigateTo}>{text}</MenuLink>
     </div>
   );
 };

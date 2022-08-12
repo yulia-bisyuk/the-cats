@@ -23,6 +23,17 @@ const UploadButton = styled.button`
   letter-spacing: 2px;
   color: ${(props) => props.theme.pink};
   cursor: pointer;
+  svg {
+    fill: ${(props) => props.theme.pink};
+  }
+
+  &:hover {
+    background-color: ${(props) => props.theme.pink};
+    color: white;
+    svg {
+      fill: white;
+    }
+  }
 `;
 
 const OptionsSection = styled.section`
@@ -75,6 +86,10 @@ const OptionSelectStylingWrapper = styled.div`
   cursor: pointer;
   background-color: white;
 
+  &:hover {
+    box-shadow: 0px 0px 0px 2px ${(props) => props.theme.lightPink} inset;
+  }
+
   &.limit {
     width: 240px;
   }
@@ -94,6 +109,16 @@ const UpdateButton = styled.button`
   border-color: transparent;
   background-color: white;
   cursor: pointer;
+  svg {
+    fill: ${(props) => props.theme.pink};
+  }
+
+  &:hover {
+    background-color: ${(props) => props.theme.pink};
+    svg {
+      fill: white;
+    }
+  }
 `;
 
 export {

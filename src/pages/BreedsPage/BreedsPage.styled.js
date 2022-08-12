@@ -21,6 +21,24 @@ const SelectsWrapper = styled.div`
   justify-content: space-evenly;
 `;
 
+const FieldWrapper = styled.div`
+  position: relative;
+  /* width: 290px; */
+  /* margin-bottom: 10px;
+  border-radius: 10px;
+  padding: 8px 10px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.5;
+  color: ${(props) => props.theme.titleColor};
+  cursor: pointer;
+  background-color: white; */
+
+  /* &.limit {
+    width: 240px;
+  } */
+`;
+
 const SelectField = styled.select`
   appearance: none;
   width: 226px;
@@ -29,11 +47,16 @@ const SelectField = styled.select`
   border-color: transparent;
   border-radius: 10px;
   background-color: ${(props) => props.theme.lightGreyBgColor};
+  cursor: pointer;
 
   &:focus,
   &:active {
     border-color: transparent;
     outline: none;
+  }
+
+  &:hover {
+    box-shadow: 0px 0px 0px 2px ${(props) => props.theme.lightPink} inset;
   }
 `;
 const LimitField = styled.select`
@@ -44,11 +67,15 @@ const LimitField = styled.select`
   border-color: transparent;
   border-radius: 10px;
   background-color: ${(props) => props.theme.lightGreyBgColor};
+  cursor: pointer;
 
   &:focus,
   &:active {
     border-color: transparent;
     outline: none;
+  }
+  &:hover {
+    box-shadow: 0px 0px 0px 2px ${(props) => props.theme.lightPink} inset;
   }
 `;
 
@@ -59,6 +86,24 @@ const SortButton = styled.button`
   border-radius: 10px;
   background-color: ${(props) => props.theme.lightGreyBgColor};
   cursor: pointer;
+  svg {
+    fill: ${(props) => props.theme.lightGrayTxtColor};
+  }
+
+  &:hover {
+    border: 2px solid ${(props) => props.theme.lightPink};
+    /* box-shadow: 0px 0px 0px 2px ${(props) => props.theme.lightPink} inset; */
+    svg {
+      fill: ${(props) => props.theme.pink};
+    }
+  }
 `;
 
-export { BreedButton, SelectsWrapper, SortButton, SelectField, LimitField };
+export {
+  BreedButton,
+  SelectsWrapper,
+  FieldWrapper,
+  SortButton,
+  SelectField,
+  LimitField,
+};

@@ -4,7 +4,7 @@ import Gallery from "components/Gallery";
 import ClipLoader from "react-spinners/ClipLoader";
 import {
   PagesWrapper,
-  PagesPositioningWrapper,
+  PagesContentWrapper,
 } from "../../constants/common-styles";
 import { useGetUserFavouritesQuery } from "redux/catsApi";
 import { LoaderWrapper } from "./FavouritesPage.styled";
@@ -16,21 +16,19 @@ const FavouritesPage = () => {
     isLoading,
   } = useGetUserFavouritesQuery("user");
 
-  if (isSuccess) console.log("favourites", favourites);
-
   return (
-    <PagesPositioningWrapper>
+    <PagesWrapper>
       <SearchForm />
-      <PagesWrapper>
-        <GoBackGroup btnText="favourites" />
+      <PagesContentWrapper>
+        <GoBackGroup text="favourites" />
         {isLoading && (
           <LoaderWrapper>
             <ClipLoader color="#FF868E" size="100px" />
           </LoaderWrapper>
         )}
         {isSuccess && <Gallery items={favourites} />}
-      </PagesWrapper>
-    </PagesPositioningWrapper>
+      </PagesContentWrapper>
+    </PagesWrapper>
   );
 };
 

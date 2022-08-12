@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import ClipLoader from "react-spinners/ClipLoader";
 import {
   PagesWrapper,
-  PagesPositioningWrapper,
+  PagesContentWrapper,
 } from "../../constants/common-styles";
 import SearchForm from "components/SearchForm";
 import GoBackGroup from "components/GoBackGroup";
@@ -25,18 +25,21 @@ const SearchForBreedsPage = () => {
   });
 
   useEffect(() => {
-    if(breed && breed.length !== 0) setBreedId(breed[0].id);
-  }, [ isSuccess, breed ]);
+    if (breed && breed.length !== 0) setBreedId(breed[0].id);
+  }, [isSuccess, breed]);
 
-   const { data: images, isLoading } = useGetImagesForBreedQuery({id: breedId, limit: 5});
+  const { data: images, isLoading } = useGetImagesForBreedQuery({
+    id: breedId,
+    limit: 5,
+  });
 
   //  console.log('imagesFromSearchForBreedsPage', images)
 
   return (
-    <PagesPositioningWrapper>
+    <PagesWrapper>
       <SearchForm />
-      <PagesWrapper>
-        <GoBackGroup btnText="search" />
+      <PagesContentWrapper>
+        <GoBackGroup text="search" />
         {request && (
           <BreedNotification>
             Search results for: <Breed>{request}</Breed>
@@ -48,8 +51,8 @@ const SearchForBreedsPage = () => {
           </LoaderWrapper>
         )}
         {isSuccess && <Gallery items={images} />}
-      </PagesWrapper>
-    </PagesPositioningWrapper>
+      </PagesContentWrapper>
+    </PagesWrapper>
   );
 };
 

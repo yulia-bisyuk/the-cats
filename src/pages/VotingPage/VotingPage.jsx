@@ -11,7 +11,7 @@ import {
 } from "redux/catsApi";
 import {
   PagesWrapper,
-  PagesPositioningWrapper,
+  PagesContentWrapper,
 } from "../../constants/common-styles";
 import {
   LoaderWrapper,
@@ -37,10 +37,7 @@ const VotingPage = () => {
   const [activities, setActivities] = useState(
     JSON.parse(window.localStorage.getItem("activities")) || []
   );
-
   const url = isSuccess ? cat[0].url : dummy;
-
-  if (isSuccess) console.log(cat[0]);
 
   const activityLogger = (id, type) => {
     const date = new Date().toTimeString().slice(0, 5);
@@ -57,10 +54,10 @@ const VotingPage = () => {
   }, [activities]);
 
   return (
-    <PagesPositioningWrapper>
+    <PagesWrapper>
       <SearchForm />
-      <PagesWrapper>
-        <GoBackGroup btnText="voting" />
+      <PagesContentWrapper>
+        <GoBackGroup text="voting" />
         {isFetching ? (
           <LoaderWrapper>
             <ClipLoader color="#FF868E" size="60px" />
@@ -83,7 +80,7 @@ const VotingPage = () => {
               }}
             >
               <svg width="30" height="30">
-                <use href={sprite + "#icon-like-white-30"} />
+                <use href={sprite + "#icon-like-no-fill-30"} />
               </svg>
             </ButtonLike>
             <ButtonFav
@@ -93,7 +90,7 @@ const VotingPage = () => {
               }}
             >
               <svg width="30" height="30">
-                <use href={sprite + "#icon-Vector-348-white-Stroke"} />
+                <use href={sprite + "#icon-Vector-348-no-fill-Stroke"} />
               </svg>
             </ButtonFav>
             <ButtonDislike
@@ -104,7 +101,7 @@ const VotingPage = () => {
               }}
             >
               <svg width="30" height="30">
-                <use href={sprite + "#icon-dislike-white-30 "} />
+                <use href={sprite + "#icon-dislike-no-fill-30 "} />
               </svg>
             </ButtonDislike>
           </ButtonsWrapper>
@@ -112,8 +109,8 @@ const VotingPage = () => {
         {activities !== [] && (
           <Logger activities={activities} text="was added to" />
         )}
-      </PagesWrapper>
-    </PagesPositioningWrapper>
+      </PagesContentWrapper>
+    </PagesWrapper>
   );
 };
 

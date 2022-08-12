@@ -1,17 +1,21 @@
-import { GoBackBtn, CurrentPageBtn, BtnsWrapper } from "./GoBackGroup.styled";
+import { useNavigate } from "react-router-dom";
+import {
+  GoBackBtn,
+  CurrentPagePointer,
+  BtnsWrapper,
+} from "./GoBackGroup.styled";
 import sprite from "../../icons/sprite.svg";
 
-const GoBackGroup = ({ btnText, onClick }) => {
+const GoBackGroup = ({ text }) => {
+  const navigate = useNavigate();
   return (
     <BtnsWrapper>
-      <GoBackBtn onClick={onClick}>
+      <GoBackBtn onClick={() => navigate(-1)}>
         <svg width="20" height="20">
-          <use href={sprite + "#icon-back-20"} />
+          <use href={sprite + "#icon-back-no-fill-20"} />
         </svg>
       </GoBackBtn>
-      <CurrentPageBtn onClick={() => window.location.reload(false)}>
-        {btnText}
-      </CurrentPageBtn>
+      <CurrentPagePointer>{text}</CurrentPagePointer>
     </BtnsWrapper>
   );
 };
