@@ -1,22 +1,18 @@
-import {
-  BackgroundRectangle,
-  HomePageImg,
-  HomePageWrapper,
-} from "./HomePage.styled";
+import { BackgroundRectangle, HomePageImg } from "./HomePage.styled";
 import img from "../images/girl-and-pet.png";
 
 const HomePage = () => {
   return (
-    <HomePageWrapper>
+    <div>
       <BackgroundRectangle>
         <HomePageImg
           src={img}
           alt="flying girl and pet"
-          width="775px"
-          height="900px"
+          // width="775px"
+          // height="900px"
         />
       </BackgroundRectangle>
-    </HomePageWrapper>
+    </div>
   );
 };
 

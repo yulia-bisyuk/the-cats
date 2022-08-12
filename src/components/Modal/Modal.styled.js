@@ -9,6 +9,7 @@ const Overlay = styled.div`
   height: 100vh;
   background-color: rgba(29, 29, 29, 0.6);
   z-index: 100;
+  overflow: scroll;
 `;
 
 const ModalContainer = styled.div`
@@ -109,6 +110,7 @@ const ClickLabel = styled.label`
   font-size: 20px;
   line-height: 1.5;
   color: ${(props) => props.theme.titleColor};
+  cursor: pointer;
 `;
 
 const Image = styled.img`

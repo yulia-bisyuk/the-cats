@@ -1,14 +1,7 @@
 import styled from "styled-components";
 
-const HomePageWrapper = styled.div`
-  max-width: 1440px;
-  width: 795px;
-  position: absolute;
-  top: 46px;
-  left: 716px;
-`;
-
 const BackgroundRectangle = styled.div`
+  position: relative;
   width: 680px;
   height: 840px;
 
@@ -18,8 +11,11 @@ const BackgroundRectangle = styled.div`
 
 const HomePageImg = styled.img`
   position: absolute;
-  left: -100px;
-  top: -50px;
+  height: 840px;
+  width: 680px;
+
+  right: 0px;
+  top: 0px;
 `;
 
-export { BackgroundRectangle, HomePageImg, HomePageWrapper };
+export { BackgroundRectangle, HomePageImg };

@@ -33,6 +33,12 @@ div {
   box-sizing: border-box;
 }
 
+button:active,
+button:focus {
+  outline: none;
+  border-color: transparent;
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
