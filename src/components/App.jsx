@@ -10,17 +10,13 @@ const ReactionsPage = lazy(() =>
 const FavouritesPage = lazy(() =>
   import("../pages/FavouritesPage/FavouritesPage")
 );
-
 const SearchForBreedsPage = lazy(() =>
   import("../pages/SearchForBreedsPage/SearchForBreedsPage")
 );
-
 const BreedInfoPage = lazy(() =>
   import("../pages/BreedInfoPage/BreedInfoPage")
 );
-
 const BreedsPage = lazy(() => import("../pages/BreedsPage/BreedsPage"));
-
 const GalleryPage = lazy(() => import("../pages/GalleryPage/GalleryPage"));
 
 export const App = () => {
@@ -39,7 +35,6 @@ export const App = () => {
             element={<SearchForBreedsPage />}
           />
           <Route exact path="breeds" element={<BreedsPage />} />
-          {/* поправити адресу на breeds/info */}
           <Route exact path="info" element={<BreedInfoPage />} />
           <Route exact path="gallery" element={<GalleryPage />} />
         </Routes>

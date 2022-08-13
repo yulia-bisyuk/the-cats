@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import SearchForm from "components/SearchForm";
 import Gallery from "components/Gallery";
 import GoBackGroup from "components/GoBackGroup";
@@ -18,7 +18,6 @@ import {
   SelectField,
   LimitField,
 } from "./BreedsPage.styled";
-import { useEffect } from "react";
 
 const BreedsPage = () => {
   const [breedId, setBreedId] = useState("all");

@@ -1,3 +1,5 @@
+import { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
 import SearchForm from "components/SearchForm";
 import GoBackGroup from "components/GoBackGroup";
 import { Logger } from "../../components/Logger/Logger";
@@ -21,8 +23,6 @@ import {
   ButtonFav,
   ButtonDislike,
 } from "./VotingPage.styled";
-import { useState, useEffect } from "react";
-import { useDispatch } from "react-redux";
 import {
   getLikedImages,
   getDislikedImages,
@@ -31,7 +31,6 @@ import {
 const VotingPage = () => {
   const dispatch = useDispatch();
   const { data: cat, isSuccess, isFetching } = useFetchRandomCatQuery();
-
   const [vote] = useVotingMutation();
   const [add] = useAddToFavouritesMutation();
   const [activities, setActivities] = useState(

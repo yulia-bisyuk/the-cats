@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import {
   useDeleteFromFavouritesMutation,
   useAddToFavouritesMutation,
@@ -15,7 +16,6 @@ import {
   Notification,
   NotificationText,
 } from "./Gallery.styled";
-import { useLocation } from "react-router-dom";
 
 const Gallery = ({ items }) => {
   const location = useLocation();

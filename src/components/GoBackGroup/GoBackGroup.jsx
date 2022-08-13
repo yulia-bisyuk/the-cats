@@ -8,6 +8,7 @@ import sprite from "../../icons/sprite.svg";
 
 const GoBackGroup = ({ text }) => {
   const navigate = useNavigate();
+
   return (
     <BtnsWrapper>
       <GoBackBtn onClick={() => navigate(-1)}>

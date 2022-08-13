@@ -1,4 +1,5 @@
 import { createPortal } from "react-dom";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import {
   Overlay,
@@ -19,17 +20,16 @@ import {
 } from "./Modal.styled";
 import ClipLoader from "react-spinners/ClipLoader";
 import sprite from "../../icons/sprite.svg";
-import { useState, useEffect } from "react";
 
 const Modal = ({ onClose }) => {
-  axios.defaults.headers["x-api-key"] = "0b7504df-17ed-43ae-9368-17c81ca0668c";
-
   useEffect(() => {
     window.addEventListener("keydown", onClose);
     return () => {
       window.removeEventListener("keydown", onClose);
     };
   });
+
+  axios.defaults.headers["x-api-key"] = "0b7504df-17ed-43ae-9368-17c81ca0668c";
 
   const modalRoot = document.querySelector("#modal-root");
   const [uploadedImage, setUploadedImage] = useState(null);

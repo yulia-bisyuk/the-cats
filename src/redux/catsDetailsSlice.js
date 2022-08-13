@@ -44,6 +44,6 @@ export const { getLikedImages } = catsDetailsSlice.actions;
 export const { getDislikedImages } = catsDetailsSlice.actions;
 
 export const getBreedRequestValue = (state) => state.catsDetails.userRequest;
-export const getLikedImageslValue = (state) => state.catsDetails.likedImages;
-export const getDislikedImageslValue = (state) =>
+export const getLikedImagesValue = (state) => state.catsDetails.likedImages;
+export const getDislikedImagesValue = (state) =>
   state.catsDetails.dislikedImages;

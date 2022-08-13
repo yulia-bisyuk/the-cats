@@ -111,6 +111,7 @@ export const catsApi = createApi({
       invalidatesTags: ["Cats"],
     }),
 
+    // ????
     // uploadImage: builder.mutation({
     //   query: (value) => ({
     //     url: `images/upload?file=${value.file}&sub_id=${value.id}`,

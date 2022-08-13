@@ -6,7 +6,6 @@ const LoaderWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: ${(props) => props.theme.lightGreyBgColor}; */
   border-radius: 20px;
 `;
 const ImageToVote = styled.img`

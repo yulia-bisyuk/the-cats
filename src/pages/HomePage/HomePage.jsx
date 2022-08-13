@@ -5,12 +5,7 @@ const HomePage = () => {
   return (
     <div>
       <BackgroundRectangle>
-        <HomePageImg
-          src={img}
-          alt="flying girl and pet"
-          // width="775px"
-          // height="900px"
-        />
+        <HomePageImg src={img} alt="flying girl and pet" />
       </BackgroundRectangle>
     </div>
   );

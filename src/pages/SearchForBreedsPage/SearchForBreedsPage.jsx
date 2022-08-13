@@ -33,8 +33,6 @@ const SearchForBreedsPage = () => {
     limit: 5,
   });
 
-  //  console.log('imagesFromSearchForBreedsPage', images)
-
   return (
     <PagesWrapper>
       <SearchForm />

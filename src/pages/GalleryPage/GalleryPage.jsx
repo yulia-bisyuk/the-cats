@@ -70,7 +70,6 @@ const GalleryPage = () => {
 
   const { data: userImage, isSuccess: userImageUploaded } =
     useGetUploadedImagesQuery();
-  if (userImageUploaded) console.log("userImage", userImage);
 
   const sortByType = (images, type) => {
     return images.filter((image) => image.url.endsWith(type));
@@ -101,8 +100,6 @@ const GalleryPage = () => {
       ]);
     }
   }, [userImageUploaded, userImage, allImagesFetched]);
-
-  console.log("imagesToRender", imagesToRender);
 
   useEffect(() => {
     if (breeds !== [] && isSuccess)
@@ -214,7 +211,7 @@ const GalleryPage = () => {
               </OptionSelectStylingWrapper>
               <UpdateButton
                 onClick={() => window.location.reload(false)}
-                // onClick={() => deleteImg("7jbHh3ge0")}
+                // onClick={() => deleteImg("QERcPEbN6")}
               >
                 <svg width="17" height="20">
                   <use href={sprite + "#icon-update-20"} />

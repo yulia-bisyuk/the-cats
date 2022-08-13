@@ -23,20 +23,6 @@ const SelectsWrapper = styled.div`
 
 const FieldWrapper = styled.div`
   position: relative;
-  /* width: 290px; */
-  /* margin-bottom: 10px;
-  border-radius: 10px;
-  padding: 8px 10px;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.5;
-  color: ${(props) => props.theme.titleColor};
-  cursor: pointer;
-  background-color: white; */
-
-  /* &.limit {
-    width: 240px;
-  } */
 `;
 
 const SelectField = styled.select`
@@ -92,7 +78,7 @@ const SortButton = styled.button`
 
   &:hover {
     border: 2px solid ${(props) => props.theme.lightPink};
-    /* box-shadow: 0px 0px 0px 2px ${(props) => props.theme.lightPink} inset; */
+
     svg {
       fill: ${(props) => props.theme.pink};
     }

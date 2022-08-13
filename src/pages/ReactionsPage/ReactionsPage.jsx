@@ -7,17 +7,15 @@ import {
   PagesContentWrapper,
 } from "../../constants/common-styles";
 import {
-  getLikedImageslValue,
-  getDislikedImageslValue,
+  getLikedImagesValue,
+  getDislikedImagesValue,
 } from "redux/catsDetailsSlice";
 import { useSelector } from "react-redux";
 
 const LikesPage = () => {
   const location = useLocation();
-  const likes = useSelector(getLikedImageslValue);
-  const dislikes = useSelector(getDislikedImageslValue);
-  console.log("imageUrl", likes);
-
+  const likes = useSelector(getLikedImagesValue);
+  const dislikes = useSelector(getDislikedImagesValue);
   const text = location.pathname === "/likes" ? "Likes" : "Dislikes";
 
   return (

@@ -72,7 +72,6 @@ const ImageContainer = styled.div`
   position: relative;
   height: 320px;
   margin-bottom: 20px;
-  /* padding: 20px 40px; */
   background-color: white;
   border-radius: 20px;
   border: 2px dashed #fbe0dc;

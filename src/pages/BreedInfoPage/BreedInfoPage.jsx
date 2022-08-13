@@ -28,8 +28,6 @@ const BreedInfoPage = () => {
     isLoading,
   } = useGetImagesForBreedQuery({ id: selectedBreed.id, limit: 5 });
 
-  if (isSuccess) console.log("imagesForOneBreed", imagesForOneBreed);
-
   return (
     <PagesWrapper>
       <SearchForm />
