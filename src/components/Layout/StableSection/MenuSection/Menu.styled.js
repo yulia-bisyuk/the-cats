@@ -1,26 +1,35 @@
 import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 
-const FlexWrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
+const MenuWrapper = styled.div`
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+  }
 `;
 
 const ImgWrapper = styled.div`
-  box-sizing: border-box;
-  width: 138px;
-  height: 198px;
-  margin-bottom: 10px;
-  border-style: solid;
-  border-radius: 20px;
-  border-width: 4px;
+  display: none;
+
+  @media (min-width: 768px) {
+    box-sizing: border-box;
+    width: 138px;
+    height: 198px;
+    margin-bottom: 10px;
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 4px;
+  }
 `;
 const MenuLink = styled(NavLink)`
-  width: 138px;
+  width: 100%;
   height: 36px;
+
+  margin-bottom: 20px;
   display: flex;
   justify-content: center;
   align-items: center;
+
   background-color: white;
   border-radius: 10px;
   border-color: transparent;
@@ -40,5 +49,9 @@ const MenuLink = styled(NavLink)`
     background-color: ${(props) => props.theme.pink};
     color: white;
   }
+
+  @media (min-width: 768px) {
+    width: 138px;
+  }
 `;
-export { ImgWrapper, FlexWrapper, MenuLink };
+export { ImgWrapper, MenuWrapper, MenuLink };

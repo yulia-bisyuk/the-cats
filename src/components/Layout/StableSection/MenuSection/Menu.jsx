@@ -1,4 +1,4 @@
-import { FlexWrapper } from "./Menu.styled";
+import { MenuWrapper } from "./Menu.styled";
 import { MenuBlock } from "./MenuBlock";
 import notebook from "../images/vote-table.png";
 import cat from "../images/pet-breeds.png";
@@ -6,7 +6,7 @@ import search from "../images/images-search.png";
 
 export const Menu = () => {
   return (
-    <FlexWrapper>
+    <MenuWrapper>
       <MenuBlock
         alt="notebook"
         style={{ backgroundColor: "#B4B7FF", borderColor: "#F3F3FF" }}
@@ -30,6 +30,6 @@ export const Menu = () => {
         navigateTo="/gallery"
         text="gallery"
       />
-    </FlexWrapper>
+    </MenuWrapper>
   );
 };

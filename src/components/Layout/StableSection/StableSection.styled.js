@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const SectionWrapper = styled.div`
-  width: 446px;
+  /* width: 446px; */
   height: fit-content;
   position: sticky;
   top: 30px;

@@ -8,6 +8,7 @@ import {
 } from "../../constants/common-styles";
 import { useGetUserFavouritesQuery } from "redux/catsApi";
 import { LoaderWrapper } from "./FavouritesPage.styled";
+import { NextButton } from "nuka-carousel";
 
 const FavouritesPage = () => {
   const {
