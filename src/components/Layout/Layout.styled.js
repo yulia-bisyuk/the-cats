@@ -9,6 +9,16 @@ export const Container = styled.div`
   @media (min-width: 375px) {
     width: 375px;
   }
+
+  @media (min-width: 768px) {
+    width: 768px;
+    padding: 30px;
+  }
+
+  @media (min-width: 1440px) {
+    width: 1440px;
+    display: flex;
+  }
   /* width: 1226px; */
   /* display: flex;
   justify-content: space-between;

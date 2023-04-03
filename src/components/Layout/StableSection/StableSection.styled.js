@@ -1,10 +1,20 @@
 import styled from "styled-components";
 
 const SectionWrapper = styled.div`
+  /* .hidden {
+    display: none;
+  }
+  .visible {
+    display: block;
+  } */
+
   /* width: 446px; */
   height: fit-content;
+  width: fit-content;
   position: sticky;
   top: 30px;
+  margin-left: auto;
+  margin-right: auto;
 `;
 
 const Title = styled.h1`

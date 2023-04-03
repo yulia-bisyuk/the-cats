@@ -1,41 +1,70 @@
 import styled from "styled-components";
 
 const LoaderWrapper = styled.div`
-  width: 640px;
-  height: 360px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 20px;
 `;
 const ImageToVote = styled.img`
-  width: 640px;
-  height: 360px;
+  height: 166px;
   object-fit: cover;
   border-radius: 20px;
+
+  @media (min-width: 768px) {
+    height: 376px;
+  }
+
+  @media (min-width: 768px) {
+    height: 360px;
+  }
 `;
 const ButtonsWrapper = styled.div`
   position: absolute;
-  top: 387px;
-  right: 228px;
-  width: 252px;
-  height: 84px;
-  margin-left: auto;
-  margin-right: auto;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
+  top: 212px;
+  left: 72px;
+
   padding: 4px;
   border-radius: 20px;
   background-color: white;
+
+  @media (min-width: 768px) {
+    top: 396px;
+    left: 212px;
+  }
+
+  @media (min-width: 1440px) {
+    top: 392px;
+  }
 `;
-const ButtonLike = styled.button`
-  width: 80px;
-  height: 80px;
-  border-radius: 20px 0px 0px 20px;
+
+const ButtonIcon = styled.svg`
+  @media (min-width: 768px) {
+    width: 30px;
+    height: 30px;
+  }
+`;
+
+const Button = styled.button`
+  width: 60px;
+  height: 60px;
   border-color: transparent;
-  background-color: ${(props) => props.theme.green};
   cursor: pointer;
+
+  :not(:last-child) {
+    margin-right: 3px;
+  }
+
+  @media (min-width: 768px) {
+    width: 80px;
+    height: 80px;
+  }
+`;
+
+const ButtonLike = styled(Button)`
+  border-radius: 20px 0px 0px 20px;
+  background-color: ${(props) => props.theme.green};
+
   svg {
     fill: white;
   }
@@ -47,12 +76,10 @@ const ButtonLike = styled.button`
     }
   }
 `;
-const ButtonFav = styled.button`
-  width: 80px;
-  height: 80px;
-  border-color: transparent;
+
+const ButtonFav = styled(Button)`
   background-color: ${(props) => props.theme.pink};
-  cursor: pointer;
+
   svg {
     fill: white;
   }
@@ -64,13 +91,10 @@ const ButtonFav = styled.button`
     }
   }
 `;
-const ButtonDislike = styled.button`
-  width: 80px;
-  height: 80px;
-  border-color: transparent;
+const ButtonDislike = styled(Button)`
   border-radius: 0px 20px 20px 0px;
   background-color: ${(props) => props.theme.yellow};
-  cursor: pointer;
+
   svg {
     fill: white;
   }
@@ -87,6 +111,7 @@ export {
   LoaderWrapper,
   ImageToVote,
   ButtonsWrapper,
+  ButtonIcon,
   ButtonLike,
   ButtonFav,
   ButtonDislike,

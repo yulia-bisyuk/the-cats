@@ -17,8 +17,10 @@ const BreedButton = styled.button`
 `;
 
 const SelectsWrapper = styled.div`
-  display: flex;
-  justify-content: space-evenly;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-evenly;
+  }
 `;
 
 const FieldWrapper = styled.div`
@@ -27,7 +29,7 @@ const FieldWrapper = styled.div`
 
 const SelectField = styled.select`
   appearance: none;
-  width: 226px;
+  width: 100%;
   height: 40px;
   padding-left: 14px;
   border-color: transparent;
@@ -43,6 +45,10 @@ const SelectField = styled.select`
 
   &:hover {
     box-shadow: 0px 0px 0px 2px ${(props) => props.theme.lightPink} inset;
+  }
+
+  @media (min-width: 768px) {
+    width: 226px;
   }
 `;
 const LimitField = styled.select`

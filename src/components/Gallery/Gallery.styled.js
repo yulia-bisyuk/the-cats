@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const GalleryList = styled.ul`
   height: fit-content;
-  display: grid;
+  /* display: grid; */
   grid-template-columns: repeat(3, 200px);
   grid-auto-rows: 140px;
   gap: 20px;

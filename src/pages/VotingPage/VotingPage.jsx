@@ -19,6 +19,7 @@ import {
   LoaderWrapper,
   ImageToVote,
   ButtonsWrapper,
+  ButtonIcon,
   ButtonLike,
   ButtonFav,
   ButtonDislike,
@@ -78,9 +79,9 @@ const VotingPage = () => {
                 dispatch(getLikedImages(cat[0].url));
               }}
             >
-              <svg width="30" height="30">
+              <ButtonIcon width="22" height="22">
                 <use href={sprite + "#icon-like-no-fill-30"} />
-              </svg>
+              </ButtonIcon>
             </ButtonLike>
             <ButtonFav
               onClick={() => {
@@ -88,9 +89,9 @@ const VotingPage = () => {
                 activityLogger(`${cat[0].id}`, "Favourites");
               }}
             >
-              <svg width="30" height="30">
+              <ButtonIcon width="22" height="22">
                 <use href={sprite + "#icon-Vector-348-no-fill-Stroke"} />
-              </svg>
+              </ButtonIcon>
             </ButtonFav>
             <ButtonDislike
               onClick={() => {
@@ -99,9 +100,9 @@ const VotingPage = () => {
                 dispatch(getDislikedImages(cat[0].url));
               }}
             >
-              <svg width="30" height="30">
+              <ButtonIcon width="22" height="22">
                 <use href={sprite + "#icon-dislike-no-fill-30 "} />
-              </svg>
+              </ButtonIcon>
             </ButtonDislike>
           </ButtonsWrapper>
         )}

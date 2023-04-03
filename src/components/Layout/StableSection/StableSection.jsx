@@ -1,3 +1,5 @@
+import useMediaQuery from "hooks/useMediaQuery";
+import { useLocation } from "react-router-dom";
 import { Menu } from "./MenuSection/Menu";
 import { Logo } from "./Logo";
 import {
@@ -8,8 +10,17 @@ import {
 } from "./StableSection.styled";
 
 export const StableSection = () => {
+  const isDesktop = useMediaQuery("(min-width: 1440px)");
+  const location = useLocation();
+
   return (
-    <SectionWrapper>
+    <SectionWrapper
+      style={
+        location.pathname === "/" || isDesktop
+          ? { display: "block" }
+          : { display: "none" }
+      }
+    >
       <Logo />
 
       <Title>Hi student!</Title>

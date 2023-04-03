@@ -33,8 +33,10 @@ div {
   box-sizing: border-box;
 }
 
+button,
 button:active,
 button:focus {
+  border: none;
   outline: none;
   border-color: transparent;
 }

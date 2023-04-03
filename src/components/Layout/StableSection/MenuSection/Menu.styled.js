@@ -4,7 +4,15 @@ import styled from "styled-components";
 const MenuWrapper = styled.div`
   @media (min-width: 768px) {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+  }
+`;
+
+const MenuBlockWrap = styled.div`
+  @media (min-width: 768px) {
+    :not(:last-child) {
+      margin-right: 16px;
+    }
   }
 `;
 
@@ -12,7 +20,7 @@ const ImgWrapper = styled.div`
   display: none;
 
   @media (min-width: 768px) {
-    box-sizing: border-box;
+    display: block;
     width: 138px;
     height: 198px;
     margin-bottom: 10px;
@@ -54,4 +62,4 @@ const MenuLink = styled(NavLink)`
     width: 138px;
   }
 `;
-export { ImgWrapper, MenuWrapper, MenuLink };
+export { ImgWrapper, MenuWrapper, MenuBlockWrap, MenuLink };

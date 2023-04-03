@@ -6,20 +6,27 @@ const LogList = styled.ul`
   padding-left: 0px;
 `;
 const LogListItem = styled.li`
-  height: 60px;
+  padding: 15px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   &:not(:last-child) {
     margin-bottom: 10px;
   }
   background-color: ${(props) => props.theme.lightGreyBgColor};
   border-radius: 10px;
+
+  @media (min-width: 768px) {
+    align-items: center;
+  }
+
+  @media (min-width: 1440px) {
+    padding: 18px 25px;
+  }
 `;
 const Time = styled.span`
-  width: 61px;
-  height: 30px;
   margin-right: 20px;
-  margin-left: 15px;
+  padding: 3px 10px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -43,8 +50,10 @@ const Id = styled.span`
   color: ${(props) => props.theme.titleColor};
 `;
 const Icon = styled.svg`
-  margin-left: auto;
-  margin-right: 20px;
+  margin-left: 5px;
+  @media (min-width: 768px) {
+    margin-left: auto;
+  }
 `;
 
 export { LogList, LogListItem, Time, Text, Id, Icon };

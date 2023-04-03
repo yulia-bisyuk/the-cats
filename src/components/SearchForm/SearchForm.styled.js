@@ -2,11 +2,26 @@ import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
 const FormWrapper = styled.div`
-  width: 680px;
   margin-bottom: 10px;
   display: flex;
+  flex-wrap: wrap;
   align-content: center;
   justify-content: space-between;
+`;
+
+const Form = styled.form`
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+
+  @media (min-width: 768px) {
+    width: 428px;
+    margin-top: 0;
+  }
+
+  @media (min-width: 1440px) {
+    width: 470px;
+  }
 `;
 
 const FormLabel = styled.label`
@@ -22,7 +37,7 @@ const FormLabel = styled.label`
 
 const FormInput = styled.input`
   box-sizing: border-box;
-  width: 470px;
+  width: 100%;
   height: 60px;
   padding: 0px 20px 0px 20px;
   outline: none;
@@ -71,6 +86,10 @@ const SubmitBtn = styled.button`
   }
 `;
 
+const LinksWrap = styled.div`
+  display: flex;
+`;
+
 const ReactionLink = styled(NavLink)`
   width: 60px;
   height: 60px;
@@ -93,6 +112,27 @@ const ReactionLink = styled(NavLink)`
       fill: white;
     }
   }
+  :not(:last-child) {
+    margin-right: 10px;
+  }
 `;
 
-export { FormWrapper, FormLabel, FormInput, SubmitBtn, ReactionLink };
+const Btn = ReactionLink.withComponent("button");
+
+const BurgerBtn = styled(Btn)`
+  cursor: pointer;
+  @media (min-width: 1440px) {
+    display: none;
+  }
+`;
+
+export {
+  FormWrapper,
+  Form,
+  FormLabel,
+  FormInput,
+  SubmitBtn,
+  BurgerBtn,
+  LinksWrap,
+  ReactionLink,
+};

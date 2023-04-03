@@ -14,8 +14,8 @@ const BackgroundRectangle = styled.div`
 
 const HomePageImg = styled.img`
   position: absolute;
-  height: 840px;
-  width: 680px;
+  height: 860px;
+  width: 760px;
 
   right: 0px;
   top: 0px;
