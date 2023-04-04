@@ -1,19 +1,9 @@
 import styled from "styled-components";
 
-const LoaderWrapper = styled.div`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 20px;
-`;
 const ImageToVote = styled.img`
-  height: 166px;
+  height: 206px;
   object-fit: cover;
   border-radius: 20px;
-
-  @media (min-width: 768px) {
-    height: 376px;
-  }
 
   @media (min-width: 768px) {
     height: 360px;
@@ -21,7 +11,7 @@ const ImageToVote = styled.img`
 `;
 const ButtonsWrapper = styled.div`
   position: absolute;
-  top: 212px;
+  top: 240px;
   left: 72px;
 
   padding: 4px;
@@ -29,12 +19,8 @@ const ButtonsWrapper = styled.div`
   background-color: white;
 
   @media (min-width: 768px) {
-    top: 396px;
+    top: 380px;
     left: 212px;
-  }
-
-  @media (min-width: 1440px) {
-    top: 392px;
   }
 `;
 
@@ -108,7 +94,6 @@ const ButtonDislike = styled(Button)`
 `;
 
 export {
-  LoaderWrapper,
   ImageToVote,
   ButtonsWrapper,
   ButtonIcon,

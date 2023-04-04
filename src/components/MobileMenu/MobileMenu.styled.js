@@ -6,9 +6,13 @@ const MobileMenuContainer = styled(Container)`
   position: absolute;
   left: 0;
   right: 0;
-  z-index: 1;
+  z-index: 5;
   height: 100vh;
   background-color: ${(props) => props.theme.lightGreyBgColor};
+
+  @media (min-width: 1440px) {
+    display: block;
+  }
 `;
 
 const CloseButton = styled(ModalCloseButton)`

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import dummy from "../../pages/images/upload-bg.png";
+import { Container } from "components/Layout/Layout.styled";
 
 const Overlay = styled.div`
   position: fixed;
@@ -12,21 +13,38 @@ const Overlay = styled.div`
   overflow: scroll;
 `;
 
-const ModalContainer = styled.div`
-  width: 680px;
-  height: 840px;
+const ModalContainer = styled(Container)`
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
   padding: 100px 20px;
-  margin: 30px 30px auto auto;
+  margin: 0;
   background-color: ${(props) => props.theme.lightGreyBgColor};
-  border-radius: 20px;
+
+  @media (min-width: 768px) {
+    width: 728px;
+    height: fit-content;
+    min-height: 94vh;
+
+    margin: 30px auto auto auto;
+    border-radius: 20px;
+  }
+
+  @media (min-width: 1440px) {
+    display: block;
+    margin: 30px 30px auto auto;
+    width: 50%;
+  }
 `;
 
 const ModalCloseButton = styled.button`
+  position: absolute;
   width: 40px;
   height: 40px;
-  position: absolute;
-  right: 40px;
-  top: 40px;
+  right: 20px;
+  top: 20px;
+
   background-color: white;
   border-color: transparent;
   border-radius: 10px;
@@ -40,24 +58,36 @@ const ModalCloseButton = styled.button`
   svg {
     fill: ${(props) => props.theme.pink};
   }
+
+  @media (min-width: 768px) {
+    right: 40px;
+    top: 40px;
+  }
 `;
 
 const ModalTitle = styled.h1`
   margin-bottom: 10px;
   font-weight: 500;
-  font-size: 36px;
+  font-size: 20px;
   line-height: 1.44;
   text-align: center;
   color: ${(props) => props.theme.titleColor};
+  @media (min-width: 768px) {
+    font-size: 36px;
+  }
 `;
 
 const PrivacyText = styled.p`
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   font-weight: 400;
   font-size: 20px;
   line-height: 1.5;
   text-align: center;
   color: ${(props) => props.theme.lightGrayTxtColor};
+
+  @media (min-width: 768px) {
+    margin-bottom: 40px;
+  }
 `;
 
 const PrivacyLink = styled.a`
@@ -72,6 +102,7 @@ const ImageContainer = styled.div`
   position: relative;
   height: 320px;
   margin-bottom: 20px;
+  padding: 30px;
   background-color: white;
   border-radius: 20px;
   border: 2px dashed #fbe0dc;
@@ -114,9 +145,13 @@ const ClickLabel = styled.label`
 
 const Image = styled.img`
   position: absolute;
+  width: 90%;
+  left: 0;
+  right: 0;
   top: 20px;
-  left: 40px;
-  width: 558px;
+  bottom: 20px;
+  margin: auto;
+
   height: 280px;
   border-radius: 10px;
   object-fit: cover;

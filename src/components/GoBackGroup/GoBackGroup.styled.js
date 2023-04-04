@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const BtnsWrapper = styled.div`
-  margin-bottom: 20px;
+  margin-bottom: 10px;
   display: flex;
   align-items: center;
 `;

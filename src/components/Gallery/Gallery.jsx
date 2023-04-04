@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
+import useMediaQuery from "hooks/useMediaQuery";
 import {
   useDeleteFromFavouritesMutation,
   useAddToFavouritesMutation,
@@ -26,6 +27,7 @@ const Gallery = ({ items }) => {
   const [removeLogs, setRemoveLogs] = useState(
     JSON.parse(window.localStorage.getItem("removeLogs")) || []
   );
+  const isDesktop = useMediaQuery("(min-width: 768px)");
 
   const activityLogger = (id, type) => {
     const date = new Date().toTimeString().slice(0, 5);
@@ -54,8 +56,8 @@ const Gallery = ({ items }) => {
               <GalleryListItem
                 key={index}
                 style={{
-                  gridColumn: columnStyle(index),
-                  gridRow: rowStyle(index),
+                  gridColumn: isDesktop ? columnStyle(index) : null,
+                  gridRow: isDesktop ? rowStyle(index) : null,
                 }}
               >
                 <ListItemImage

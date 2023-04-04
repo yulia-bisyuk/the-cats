@@ -1,6 +1,7 @@
 import {
   PagesWrapper,
   PagesContentWrapper,
+  LoaderWrapper,
 } from "../../constants/common-styles";
 import SearchForm from "components/SearchForm";
 import GoBackGroup from "components/GoBackGroup";
@@ -18,7 +19,6 @@ import { useGetImagesForBreedQuery } from "redux/catsApi";
 import { renderDotControls } from "./Slider";
 import Carousel from "nuka-carousel";
 import ClipLoader from "react-spinners/ClipLoader";
-import { LoaderWrapper } from "pages/VotingPage/VotingPage.styled";
 
 const BreedInfoPage = () => {
   const selectedBreed = JSON.parse(localStorage.getItem("selectedBreed"));

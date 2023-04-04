@@ -19,7 +19,15 @@ const BreedButton = styled.button`
 const SelectsWrapper = styled.div`
   @media (min-width: 768px) {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
+  }
+`;
+
+const InputsWrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+  @media (min-width: 768px) {
+    display: contents;
   }
 `;
 
@@ -31,10 +39,12 @@ const SelectField = styled.select`
   appearance: none;
   width: 100%;
   height: 40px;
+  margin-bottom: 10px;
   padding-left: 14px;
   border-color: transparent;
   border-radius: 10px;
   background-color: ${(props) => props.theme.lightGreyBgColor};
+  color: ${(props) => props.theme.lightGrayTxtColor};
   cursor: pointer;
 
   &:focus,
@@ -49,16 +59,18 @@ const SelectField = styled.select`
 
   @media (min-width: 768px) {
     width: 226px;
+    margin-bottom: 0;
   }
 `;
 const LimitField = styled.select`
   appearance: none;
-  width: 101px;
+  width: 195px;
   height: 40px;
   padding-left: 14px;
   border-color: transparent;
   border-radius: 10px;
   background-color: ${(props) => props.theme.lightGreyBgColor};
+  color: ${(props) => props.theme.lightGrayTxtColor};
   cursor: pointer;
 
   &:focus,
@@ -68,6 +80,10 @@ const LimitField = styled.select`
   }
   &:hover {
     box-shadow: 0px 0px 0px 2px ${(props) => props.theme.lightPink} inset;
+  }
+
+  @media (min-width: 768px) {
+    width: 101px;
   }
 `;
 
@@ -93,6 +109,7 @@ const SortButton = styled.button`
 
 export {
   BreedButton,
+  InputsWrap,
   SelectsWrapper,
   FieldWrapper,
   SortButton,

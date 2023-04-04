@@ -12,11 +12,21 @@ const PagesWrapper = styled.div`
 const PagesContentWrapper = styled.div`
   position: relative;
   width: 100%;
-  /* min-height: 770px; */
-  /* height: fit-content; */
   padding: 20px;
   border-radius: 20px;
   background-color: white;
 `;
 
-export { PagesWrapper, PagesContentWrapper };
+const LoaderWrapper = styled.div`
+  width: 100%;
+  height: 206px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  @media (min-width: 768px) {
+    height: 360px;
+  }
+`;
+
+export { PagesWrapper, PagesContentWrapper, LoaderWrapper };

@@ -4,12 +4,12 @@ import ClipLoader from "react-spinners/ClipLoader";
 import {
   PagesWrapper,
   PagesContentWrapper,
+  LoaderWrapper,
 } from "../../constants/common-styles";
 import SearchForm from "components/SearchForm";
 import GoBackGroup from "components/GoBackGroup";
 import Gallery from "components/Gallery";
 import { BreedNotification, Breed } from "./SearchForBreedsPage.styled";
-import { LoaderWrapper } from "pages/VotingPage/VotingPage.styled";
 import { getBreedRequestValue } from "../../redux/catsDetailsSlice";
 import {
   useGetBreedByNameQuery,
@@ -20,7 +20,11 @@ const SearchForBreedsPage = () => {
   const request = useSelector(getBreedRequestValue);
   const [breedId, setBreedId] = useState(null);
 
-  const { data: breed, isSuccess } = useGetBreedByNameQuery(request, {
+  const {
+    data: breed,
+    isSuccess,
+    isLoading: loading,
+  } = useGetBreedByNameQuery(request, {
     skip: request === "",
   });
 
@@ -43,7 +47,7 @@ const SearchForBreedsPage = () => {
             Search results for: <Breed>{request}</Breed>
           </BreedNotification>
         )}
-        {isLoading && (
+        {(isLoading || loading) && (
           <LoaderWrapper>
             <ClipLoader color="#FF868E" size="100px" />
           </LoaderWrapper>

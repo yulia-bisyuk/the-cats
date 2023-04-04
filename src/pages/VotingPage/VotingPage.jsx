@@ -14,9 +14,9 @@ import {
 import {
   PagesWrapper,
   PagesContentWrapper,
+  LoaderWrapper,
 } from "../../constants/common-styles";
 import {
-  LoaderWrapper,
   ImageToVote,
   ButtonsWrapper,
   ButtonIcon,

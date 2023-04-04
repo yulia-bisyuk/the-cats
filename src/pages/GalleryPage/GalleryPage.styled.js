@@ -1,17 +1,21 @@
 import styled from "styled-components";
 
 const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  display: contents;
+  @media (min-width: 768px) {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
 `;
 
 const UploadButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 143px;
+  width: 100%;
   height: 40px;
+  margin-bottom: 10px;
   border-radius: 10px;
   border-color: transparent;
   background-color: ${(props) => props.theme.lightPink};
@@ -34,16 +38,27 @@ const UploadButton = styled.button`
       fill: white;
     }
   }
+
+  @media (min-width: 768px) {
+    width: 143px;
+    margin-bottom: 0;
+  }
 `;
 
 const OptionsSection = styled.section`
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 10px 20px;
+  justify-content: space-between;
+  padding: 10px;
   margin-bottom: 20px;
   border-radius: 20px;
   background-color: ${(props) => props.theme.lightGreyBgColor};
+  @media (min-width: 768px) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10px 20px;
+  }
 `;
 
 const OptionLabel = styled.label`
@@ -56,12 +71,23 @@ const OptionLabel = styled.label`
 `;
 
 const OptionWrapper = styled.div`
-  display: flex;
+  display: contents;
+  @media (min-width: 768px) {
+    display: flex;
+  }
+`;
+
+const Option = styled.div`
+  width: 100%;
+  @media (min-width: 768px) {
+    width: 290px;
+  }
 `;
 
 const OptionSelect = styled.select`
   appearance: none;
   background-color: transparent;
+  color: ${(props) => props.theme.lightGrayTxtColor};
   border: none;
   padding: 0 1em 0 0;
   margin: 0;
@@ -75,7 +101,7 @@ const OptionSelect = styled.select`
 
 const OptionSelectStylingWrapper = styled.div`
   position: relative;
-  width: 290px;
+
   margin-bottom: 10px;
   border-radius: 10px;
   padding: 8px 10px;
@@ -91,7 +117,10 @@ const OptionSelectStylingWrapper = styled.div`
   }
 
   &.limit {
-    width: 240px;
+    width: 100%;
+    @media (min-width: 768px) {
+      width: 240px;
+    }
   }
 `;
 
@@ -102,9 +131,9 @@ const DropdownIcon = styled.svg`
 `;
 
 const UpdateButton = styled.button`
-  width: 40px;
+  width: 100%;
   height: 40px;
-  margin-left: 10px;
+
   border-radius: 10px;
   border-color: transparent;
   background-color: white;
@@ -119,11 +148,17 @@ const UpdateButton = styled.button`
       fill: white;
     }
   }
+
+  @media (min-width: 768px) {
+    width: 40px;
+    margin-left: 10px;
+  }
 `;
 
 export {
   Wrapper,
   UploadButton,
+  Option,
   OptionLabel,
   OptionWrapper,
   UpdateButton,

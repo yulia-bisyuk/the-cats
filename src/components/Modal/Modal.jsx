@@ -104,12 +104,7 @@ const Modal = ({ onClose }) => {
             to upload
           </UploadText>
           {uploadedImage && (
-            <Image
-              alt="cat"
-              src={URL.createObjectURL(uploadedImage)}
-              width="558px"
-              height="280px"
-            />
+            <Image alt="cat" src={URL.createObjectURL(uploadedImage)} />
           )}
         </ImageContainer>
 

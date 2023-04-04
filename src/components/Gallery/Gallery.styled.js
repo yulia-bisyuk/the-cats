@@ -2,18 +2,33 @@ import styled from "styled-components";
 
 const GalleryList = styled.ul`
   height: fit-content;
-  /* display: grid; */
-  grid-template-columns: repeat(3, 200px);
-  grid-auto-rows: 140px;
-  gap: 20px;
+
   padding-left: 0px;
   margin-top: 0px;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(3, 210px);
+    grid-auto-rows: 140px;
+    gap: 20px;
+  }
+  @media (min-width: 1440px) {
+    grid-template-columns: repeat(3, 200px);
+  }
 `;
 
 const GalleryListItem = styled.li`
+  height: 206px;
+  margin-top: 10px;
   list-style-type: none;
   position: relative;
+
+  @media (min-width: 768px) {
+    height: auto;
+    margin-top: 0;
+  }
 `;
+
 const ListItemImage = styled.img`
   position: absolute;
   top: 0;

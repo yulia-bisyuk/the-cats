@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import {
-  // useDeleteUploadedImageMutation,
   useGetAllBreedsQuery,
   useGetAllImagesQuery,
   useGetImagesForBreedQuery,
@@ -11,15 +10,16 @@ import Gallery from "components/Gallery";
 import Modal from "components/Modal";
 import sprite from "../../icons/sprite.svg";
 import ClipLoader from "react-spinners/ClipLoader";
-import { LoaderWrapper } from "pages/VotingPage/VotingPage.styled";
 import {
   PagesWrapper,
   PagesContentWrapper,
+  LoaderWrapper,
 } from "../../constants/common-styles";
 import GoBackGroup from "components/GoBackGroup";
 import {
   Wrapper,
   UploadButton,
+  Option,
   OptionsSection,
   OptionLabel,
   OptionWrapper,
@@ -66,13 +66,11 @@ const GalleryPage = () => {
     { skip: breed !== "none" }
   );
 
-  // const [deleteImg] = useDeleteUploadedImageMutation();
-
   const { data: userImage, isSuccess: userImageUploaded } =
     useGetUploadedImagesQuery();
 
   const sortByType = (images, type) => {
-    return images.filter((image) => image.url.endsWith(type));
+    if (images) return images.filter((image) => image.url.endsWith(type));
   };
 
   useEffect(() => {
@@ -134,7 +132,7 @@ const GalleryPage = () => {
         )}
 
         <OptionsSection>
-          <div>
+          <Option>
             <OptionLabel htmlFor="orders">Order</OptionLabel>
             <OptionSelectStylingWrapper>
               <OptionSelect
@@ -151,9 +149,9 @@ const GalleryPage = () => {
                 <use href={sprite + "#icon-dropdown-12"} />
               </DropdownIcon>
             </OptionSelectStylingWrapper>
-          </div>
+          </Option>
 
-          <div>
+          <Option>
             <OptionLabel htmlFor="types">Type</OptionLabel>
             <OptionSelectStylingWrapper>
               <OptionSelect
@@ -170,9 +168,9 @@ const GalleryPage = () => {
                 <use href={sprite + "#icon-dropdown-12"} />
               </DropdownIcon>
             </OptionSelectStylingWrapper>
-          </div>
+          </Option>
 
-          <div>
+          <Option>
             <OptionLabel htmlFor="breeds">Breed</OptionLabel>
             <OptionSelectStylingWrapper>
               <OptionSelect
@@ -189,9 +187,9 @@ const GalleryPage = () => {
                 <use href={sprite + "#icon-dropdown-12"} />
               </DropdownIcon>
             </OptionSelectStylingWrapper>
-          </div>
+          </Option>
 
-          <div>
+          <Option>
             <OptionLabel htmlFor="limits">Limit</OptionLabel>
             <OptionWrapper>
               <OptionSelectStylingWrapper className="limit">
@@ -209,16 +207,13 @@ const GalleryPage = () => {
                   <use href={sprite + "#icon-dropdown-12"} />
                 </DropdownIcon>
               </OptionSelectStylingWrapper>
-              <UpdateButton
-                onClick={() => window.location.reload(false)}
-                // onClick={() => deleteImg("QERcPEbN6")}
-              >
+              <UpdateButton onClick={() => window.location.reload(false)}>
                 <svg width="17" height="20">
                   <use href={sprite + "#icon-update-20"} />
                 </svg>
               </UpdateButton>
             </OptionWrapper>
-          </div>
+          </Option>
         </OptionsSection>
         {isLoading ||
         loading ||

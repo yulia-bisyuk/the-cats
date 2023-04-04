@@ -1,14 +1,6 @@
 import styled from "styled-components";
 
 const SectionWrapper = styled.div`
-  /* .hidden {
-    display: none;
-  }
-  .visible {
-    display: block;
-  } */
-
-  /* width: 446px; */
   height: fit-content;
   width: fit-content;
   position: sticky;

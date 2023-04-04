@@ -3,11 +3,11 @@ import SearchForm from "components/SearchForm";
 import Gallery from "components/Gallery";
 import GoBackGroup from "components/GoBackGroup";
 import ClipLoader from "react-spinners/ClipLoader";
-import { LoaderWrapper } from "pages/VotingPage/VotingPage.styled";
 import { DropdownIcon } from "pages/GalleryPage/GalleryPage.styled";
 import {
   PagesWrapper,
   PagesContentWrapper,
+  LoaderWrapper,
 } from "../../constants/common-styles";
 import { useGetAllBreedsQuery, useGetImagesForBreedQuery } from "redux/catsApi";
 import sprite from "../../icons/sprite.svg";
@@ -16,6 +16,7 @@ import {
   FieldWrapper,
   SortButton,
   SelectField,
+  InputsWrap,
   LimitField,
 } from "./BreedsPage.styled";
 
@@ -96,6 +97,7 @@ const BreedsPage = () => {
       <PagesContentWrapper>
         <SelectsWrapper>
           <GoBackGroup text="breeds" />
+
           <FieldWrapper>
             <SelectField onChange={(e) => setBreedId(e.target.value)}>
               {breedsOptions.map((option) => (
@@ -108,27 +110,29 @@ const BreedsPage = () => {
               <use href={sprite + "#icon-dropdown-12"} />
             </DropdownIcon>
           </FieldWrapper>
-          <FieldWrapper>
-            <LimitField onChange={(e) => setLimit(e.target.value)}>
-              <option value={5}>Limit: 5</option>
-              <option value={10}>Limit: 10</option>
-              <option value={15}>Limit: 15</option>
-              <option value={20}>Limit: 20</option>
-            </LimitField>
-            <DropdownIcon width="12" height="12">
-              <use href={sprite + "#icon-dropdown-12"} />
-            </DropdownIcon>
-          </FieldWrapper>
-          <SortButton onClick={handleAlphabeticSort}>
-            <svg width="20" height="20">
-              <use href={sprite + "#icon-sort-20"} />
-            </svg>
-          </SortButton>
-          <SortButton onClick={handleRevertAlphabeticSort}>
-            <svg width="20" height="20">
-              <use href={sprite + "#icon-sort-revert-20"} />
-            </svg>
-          </SortButton>
+          <InputsWrap>
+            <FieldWrapper>
+              <LimitField onChange={(e) => setLimit(e.target.value)}>
+                <option value={5}>Limit: 5</option>
+                <option value={10}>Limit: 10</option>
+                <option value={15}>Limit: 15</option>
+                <option value={20}>Limit: 20</option>
+              </LimitField>
+              <DropdownIcon width="12" height="12">
+                <use href={sprite + "#icon-dropdown-12"} />
+              </DropdownIcon>
+            </FieldWrapper>
+            <SortButton onClick={handleAlphabeticSort}>
+              <svg width="20" height="20">
+                <use href={sprite + "#icon-sort-20"} />
+              </svg>
+            </SortButton>
+            <SortButton onClick={handleRevertAlphabeticSort}>
+              <svg width="20" height="20">
+                <use href={sprite + "#icon-sort-revert-20"} />
+              </svg>
+            </SortButton>
+          </InputsWrap>
         </SelectsWrapper>
 
         {isLoading || isFetching || fetching || loading ? (

@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const BreedId = styled.span`
-  padding: 5px 30px;
+  padding: 5px 24px;
   margin-left: 10px;
   height: fit-content;
   border-radius: 10px;
@@ -12,6 +12,10 @@ const BreedId = styled.span`
   text-align: center;
   letter-spacing: 2px;
   color: white;
+
+  @media (min-width: 768px) {
+    padding: 5px 30px;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -29,9 +33,15 @@ const BreedInfoWrapper = styled.div`
 const BreedTitle = styled.h1`
   margin-bottom: 0px;
   font-weight: 500;
-  font-size: 36px;
+  font-size: 20px;
   line-height: 1.44;
+  text-align: center;
   color: ${(props) => props.theme.titleColor};
+
+  @media (min-width: 768px) {
+    width: max-content;
+    font-size: 30px;
+  }
 `;
 const TitleWrapper = styled.div`
   position: absolute;
@@ -44,23 +54,40 @@ const TitleWrapper = styled.div`
 `;
 
 const BreedFor = styled.span`
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: fit-content;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 1.45;
-  color: ${(props) => props.theme.lightGrayTxtColor};
+  display: none;
+  @media (min-width: 768px) {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.45;
+    color: ${(props) => props.theme.lightGrayTxtColor};
+  }
 `;
 
 const BreedDetailsWrapper = styled.div`
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   margin-top: 20px;
+
+  @media (min-width: 768px) {
+    flex-direction: row;
+  }
 `;
 const DetailsColumn = styled.div`
-  width: 270px;
+  :not(:last-child) {
+    margin-bottom: 10px;
+  }
+
+  @media (min-width: 768px) {
+    width: 270px;
+    :not(:last-child) {
+      margin-bottom: 0px;
+    }
+  }
 `;
 const DetailTitle = styled.span`
   font-weight: 500;
